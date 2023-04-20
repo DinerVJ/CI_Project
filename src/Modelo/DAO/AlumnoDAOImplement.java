@@ -14,8 +14,7 @@ public class AlumnoDAOImplement implements IAlumnoDAO{
     public boolean crearAlumno(Alumno alm) {
         PreparedStatement ps = null;
         cn = ConexionBD.conectar();
-        String sql = "insert into alumno(dniAlm,apPatAlm,apMatAlm,nomAlm,sgNomAlm,fecNacAlm,dniApd)"
-                + "values(?,?,?,?,?,?,?)";
+        String sql = "insert into alumno(dniAlm,apPatAlm,apMatAlm,nomAlm,sgNomAlm,fecNacAlm,dniApd)values(?,?,?,?,?,?,?)";
         try {
             ps = cn.prepareStatement(sql);
             ps.setString(1,alm.getDniAlm());
@@ -101,7 +100,7 @@ public class AlumnoDAOImplement implements IAlumnoDAO{
     @Override
     public boolean eliminarAlumno(Alumno alm) {
         PreparedStatement ps = null;
-        cn = Conexion.conectarBD();
+        cn = ConexionBD.conectar();
         String sql = "delete from alumno where dniAlm=?";
         try {
             ps = cn.prepareStatement(sql);
@@ -124,6 +123,5 @@ public class AlumnoDAOImplement implements IAlumnoDAO{
     public List<Alumno> listar() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
     
 }

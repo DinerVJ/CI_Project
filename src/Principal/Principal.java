@@ -1,5 +1,7 @@
 package Principal;
 
+import Vista.VistaPrincipal;
+
 public class Principal {
 
     /**
@@ -7,6 +9,9 @@ public class Principal {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        VistaPrincipal vp = new VistaPrincipal();
+        vp.setVisible(true);
+        vp.setLocationRelativeTo(null);
     }
     
 }

@@ -4,6 +4,10 @@
  */
 package Vista;
 
+import Controlador.ControladorRegistrarAlumno;
+import Modelo.DAO.AlumnoDAOImplement;
+import Modelo.DTO.Alumno;
+
 /**
  *
  * @author DinerVJ
@@ -26,21 +30,57 @@ public class VistaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jdskVistaPrin = new javax.swing.JDesktopPane();
+        jmnbVistaPrin = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jmnuAlm = new javax.swing.JMenu();
+        jmniRegAlm = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jdskVistaPrinLayout = new javax.swing.GroupLayout(jdskVistaPrin);
+        jdskVistaPrin.setLayout(jdskVistaPrinLayout);
+        jdskVistaPrinLayout.setHorizontalGroup(
+            jdskVistaPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 400, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        jdskVistaPrinLayout.setVerticalGroup(
+            jdskVistaPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 277, Short.MAX_VALUE)
         );
+
+        getContentPane().add(jdskVistaPrin, java.awt.BorderLayout.CENTER);
+
+        jMenu1.setText("File");
+        jmnbVistaPrin.add(jMenu1);
+
+        jmnuAlm.setText("Alumno");
+
+        jmniRegAlm.setText("Registrar Alumno");
+        jmniRegAlm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmniRegAlmActionPerformed(evt);
+            }
+        });
+        jmnuAlm.add(jmniRegAlm);
+
+        jmnbVistaPrin.add(jmnuAlm);
+
+        setJMenuBar(jmnbVistaPrin);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jmniRegAlmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmniRegAlmActionPerformed
+        // TODO add your handling code here:
+        Alumno alm = new Alumno();
+        AlumnoDAOImplement almdao = new AlumnoDAOImplement();
+        VistaRegistrarAlumno vra = new VistaRegistrarAlumno();
+        ControladorRegistrarAlumno cralm = new ControladorRegistrarAlumno(alm, almdao, vra);
+        cralm.iniciar();
+        jdskVistaPrin.add(vra);
+        vra.show();
+    }//GEN-LAST:event_jmniRegAlmActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +118,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JDesktopPane jdskVistaPrin;
+    private javax.swing.JMenuBar jmnbVistaPrin;
+    private javax.swing.JMenuItem jmniRegAlm;
+    private javax.swing.JMenu jmnuAlm;
     // End of variables declaration//GEN-END:variables
 }
