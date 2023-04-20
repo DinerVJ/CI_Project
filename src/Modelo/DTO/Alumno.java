@@ -79,4 +79,8 @@ public class Alumno {
         this.dniApd = dniApd;
     }
     
+    public Object[] registroAlumno(){
+        Object[] fila = {dniAlm,apPatAlm,apMatAlm,nomAlm,sgNomAlm,fecNacAlm,dniApd};
+        return fila;
+    }
 }

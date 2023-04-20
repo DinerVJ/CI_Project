@@ -1,15 +1,19 @@
 package Modelo.DAO;
 
 import Modelo.DTO.Alumno;
+import Vista.VistaRegistrarAlumno;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
-public class AlumnoDAOImplement implements IAlumnoDAO{
+public class AlumnoDAOImplement implements IAlumnoDAO {
 
     private Connection cn;
-    
+
     @Override
     public boolean crearAlumno(Alumno alm) {
         PreparedStatement ps = null;
@@ -17,14 +21,14 @@ public class AlumnoDAOImplement implements IAlumnoDAO{
         String sql = "insert into alumno(dniAlm,apPatAlm,apMatAlm,nomAlm,sgNomAlm,fecNacAlm,dniApd)values(?,?,?,?,?,?,?)";
         try {
             ps = cn.prepareStatement(sql);
-            ps.setString(1,alm.getDniAlm());
-            ps.setString(2,alm.getApPatAlm());
-            ps.setString(3,alm.getApMatAlm());
-            ps.setString(4,alm.getNomAlm());
-            ps.setString(5,alm.getSgNomAlm());
-            ps.setString(6,alm.getFecNacAlm());
-            ps.setString(7,alm.getDniApd());
-            ps.execute();
+            ps.setString(1, alm.getDniAlm());
+            ps.setString(2, alm.getApPatAlm());
+            ps.setString(3, alm.getApMatAlm());
+            ps.setString(4, alm.getNomAlm());
+            ps.setString(5, alm.getSgNomAlm());
+            ps.setString(6, alm.getFecNacAlm());
+            ps.setString(7, alm.getDniApd());
+            ps.executeUpdate();
             return true;
         } catch (SQLException e) {
             System.err.println(e);
@@ -61,7 +65,7 @@ public class AlumnoDAOImplement implements IAlumnoDAO{
         } catch (SQLException e) {
             System.err.println(e);
             return false;
-        } finally{
+        } finally {
             try {
                 cn.close();
             } catch (SQLException e) {
@@ -74,7 +78,7 @@ public class AlumnoDAOImplement implements IAlumnoDAO{
     public boolean actualizarAlumno(Alumno alm) {
         PreparedStatement ps = null;
         cn = ConexionBD.conectar();
-        String sql = "update alumno set apPatAlm=?,apMatAlm=?,nomAlm=?,sgNomAlm=?,fecNacAlm=?,dniApd=?";
+        String sql = "update alumno set apPatAlm=?,apMatAlm=?,nomAlm=?,sgNomAlm=?,fecNacAlm=?,dniApd=? where dniAlm=?";
         try {
             ps = cn.prepareStatement(sql);
             ps.setString(1, alm.getApPatAlm());
@@ -83,12 +87,13 @@ public class AlumnoDAOImplement implements IAlumnoDAO{
             ps.setString(4, alm.getSgNomAlm());
             ps.setString(5, alm.getFecNacAlm());
             ps.setString(6, alm.getDniApd());
-            ps.executeQuery();
+            ps.setString(7, alm.getDniAlm());
+            ps.execute();
             return true;
         } catch (SQLException e) {
             System.err.println(e);
             return false;
-        } finally{
+        } finally {
             try {
                 cn.close();
             } catch (SQLException e) {
@@ -110,7 +115,7 @@ public class AlumnoDAOImplement implements IAlumnoDAO{
         } catch (SQLException e) {
             System.err.println(e);
             return false;
-        } finally{
+        } finally {
             try {
                 cn.close();
             } catch (SQLException e) {
@@ -121,7 +126,36 @@ public class AlumnoDAOImplement implements IAlumnoDAO{
 
     @Override
     public List<Alumno> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        List<Alumno> listaAlm = new ArrayList();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "SELECT * FROM alumno";
+        try {
+            cn = ConexionBD.conectar();
+            ps = cn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Alumno alm = new Alumno();
+                alm.setDniAlm(rs.getString("dniAlm"));
+                alm.setApPatAlm(rs.getString("apPatAlm"));
+                alm.setApMatAlm(rs.getString("apMatAlm"));
+                alm.setNomAlm(rs.getString("nomAlm"));
+                alm.setSgNomAlm(rs.getString("sgNomAlm"));
+                alm.setFecNacAlm(rs.getString("fecNacAlm"));
+                alm.setDniApd(rs.getString("dniApd"));
+                listaAlm.add(alm);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            try {
+                cn.close();
+            } catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+        return listaAlm;
+
     }
-    
+
 }
