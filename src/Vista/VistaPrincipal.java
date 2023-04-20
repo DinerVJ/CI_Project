@@ -19,7 +19,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
      */
     public VistaPrincipal() {
         initComponents();
-        setSize(750,700);
+        setSize(800, 800);
+        jpnlDesk.setSize(750,700);
     }
 
     /**
@@ -31,6 +32,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jpnlDesk = new javax.swing.JPanel();
         jdskVistaPrin = new javax.swing.JDesktopPane();
         jmnbVistaPrin = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -38,6 +40,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jmniRegAlm = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.BorderLayout());
+
+        jpnlDesk.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout jdskVistaPrinLayout = new javax.swing.GroupLayout(jdskVistaPrin);
         jdskVistaPrin.setLayout(jdskVistaPrinLayout);
@@ -50,7 +55,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
             .addGap(0, 277, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jdskVistaPrin, java.awt.BorderLayout.CENTER);
+        jpnlDesk.add(jdskVistaPrin, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(jpnlDesk, java.awt.BorderLayout.CENTER);
 
         jMenu1.setText("File");
         jmnbVistaPrin.add(jMenu1);
@@ -76,7 +83,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         Alumno alm = new Alumno();
         AlumnoDAO almdao = new AlumnoDAO();
-        VistaRegistrarAlumno vra = new VistaRegistrarAlumno();
+        VistaAlumno vra = new VistaAlumno();
         ControladorAlumno cralm = new ControladorAlumno(alm, almdao, vra);
         cralm.iniciar();
         jdskVistaPrin.add(vra);
@@ -124,5 +131,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jmnbVistaPrin;
     private javax.swing.JMenuItem jmniRegAlm;
     private javax.swing.JMenu jmnuAlm;
+    private javax.swing.JPanel jpnlDesk;
     // End of variables declaration//GEN-END:variables
 }

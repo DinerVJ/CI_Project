@@ -1,7 +1,7 @@
 package Modelo.DAO;
 
 import Modelo.DTO.Alumno;
-import Vista.VistaRegistrarAlumno;
+import Vista.VistaAlumno;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.*;

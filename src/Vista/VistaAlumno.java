@@ -4,13 +4,14 @@ package Vista;
  *
  * @author DinerVJ
  */
-public class VistaRegistrarAlumno extends javax.swing.JInternalFrame {
+public class VistaAlumno extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form VistaRegistrarAlumno
      */
-    public VistaRegistrarAlumno() {
+    public VistaAlumno() {
         initComponents();
+        setSize(730,600);
     }
 
     /**

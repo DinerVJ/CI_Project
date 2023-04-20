@@ -8,12 +8,12 @@ package Vista;
  *
  * @author DinerVJ
  */
-public class VistaRegistrarApoderado extends javax.swing.JInternalFrame {
+public class VistaPago extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form VistaRegistrarApoderado
+     * Creates new form VistaRegistrarPago
      */
-    public VistaRegistrarApoderado() {
+    public VistaPago() {
         initComponents();
     }
 

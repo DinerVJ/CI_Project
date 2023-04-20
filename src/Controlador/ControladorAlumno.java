@@ -2,7 +2,7 @@ package Controlador;
 
 import Modelo.DAO.AlumnoDAO;
 import Modelo.DTO.Alumno;
-import Vista.VistaRegistrarAlumno;
+import Vista.VistaAlumno;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -13,10 +13,10 @@ public class ControladorAlumno implements ActionListener {
 
     private Alumno alm;
     private AlumnoDAO dao;
-    private VistaRegistrarAlumno vra;
+    private VistaAlumno vra;
     DefaultTableModel dtblm = new DefaultTableModel();
 
-    public ControladorAlumno(Alumno alm, AlumnoDAO dao, VistaRegistrarAlumno vra) {
+    public ControladorAlumno(Alumno alm, AlumnoDAO dao, VistaAlumno vra) {
         this.alm = alm;
         this.dao = dao;
         this.vra = vra;
