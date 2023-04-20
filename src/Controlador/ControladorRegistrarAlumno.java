@@ -5,13 +5,16 @@ import Modelo.DTO.Alumno;
 import Vista.VistaRegistrarAlumno;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class ControladorRegistrarAlumno implements ActionListener {
 
     private Alumno alm;
     private AlumnoDAOImplement dao;
     private VistaRegistrarAlumno vra;
+    DefaultTableModel dtblm = new DefaultTableModel();
 
     public ControladorRegistrarAlumno(Alumno alm, AlumnoDAOImplement dao, VistaRegistrarAlumno vra) {
         this.alm = alm;
@@ -26,6 +29,7 @@ public class ControladorRegistrarAlumno implements ActionListener {
     public void iniciar() {
         vra.setTitle("REGISTRAR ALUMNO");
         vra.setLocation(0, 0);
+        listarAlm();
     }
 
     @Override
@@ -45,6 +49,7 @@ public class ControladorRegistrarAlumno implements ActionListener {
             } else {
                 JOptionPane.showMessageDialog(null, "ERROR AL REGISTRAR ALUMNO!");
             }
+            listarAlm();
         }
 
         if (e.getSource() == vra.jbtnBusAlm) {
@@ -80,6 +85,7 @@ public class ControladorRegistrarAlumno implements ActionListener {
                     JOptionPane.showMessageDialog(null, "ERROR! No se pudo actualizar.");
                 }
             }
+            dao.listarAlumno();
         }
 
         if (e.getSource() == vra.jbtnElmAlm) {
@@ -101,5 +107,22 @@ public class ControladorRegistrarAlumno implements ActionListener {
         vra.jtxtSgNomAlm.setText(null);
         vra.jtxtFecNacAlm.setText(null);
         vra.jtxtDniApd.setText(null);
+    }
+    
+    public void listarAlm(){
+        List<Alumno> listarAlm = dao.listarAlumno();
+        dtblm = (DefaultTableModel) vra.jtblAlm.getModel();
+        Object[] ob = new Object[7];
+        for (int i = 0; i < listarAlm.size(); i++) {
+            ob[0] = listarAlm.get(i).getDniAlm();
+            ob[1] = listarAlm.get(i).getApPatAlm();
+            ob[2] = listarAlm.get(i).getApMatAlm();
+            ob[3] = listarAlm.get(i).getNomAlm();
+            ob[4] = listarAlm.get(i).getSgNomAlm();
+            ob[5] = listarAlm.get(i).getFecNacAlm();
+            ob[6] = listarAlm.get(i).getDniApd();
+            dtblm.addRow(ob);
+        }
+        vra.jtblAlm.setModel(dtblm);
     }
 }

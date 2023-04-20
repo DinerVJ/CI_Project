@@ -8,5 +8,5 @@ public interface IAlumnoDAO {
     public boolean leerAlumno(Alumno alm);
     public boolean actualizarAlumno(Alumno alm);
     public boolean eliminarAlumno(Alumno alm);
-    public List<Alumno>listar();
+    public List<Alumno> listarAlumno();
 }

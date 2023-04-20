@@ -125,15 +125,13 @@ public class AlumnoDAOImplement implements IAlumnoDAO {
     }
 
     @Override
-    public List<Alumno> listar() {
-        List<Alumno> listaAlm = new ArrayList();
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        String sql = "SELECT * FROM alumno";
+    public List<Alumno> listarAlumno() {
+        List<Alumno> listaAlm = new ArrayList<Alumno>();
         try {
             cn = ConexionBD.conectar();
-            ps = cn.prepareStatement(sql);
-            rs = ps.executeQuery();
+            String sql = "select * from alumno";
+            PreparedStatement ps = cn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Alumno alm = new Alumno();
                 alm.setDniAlm(rs.getString("dniAlm"));
@@ -145,14 +143,11 @@ public class AlumnoDAOImplement implements IAlumnoDAO {
                 alm.setDniApd(rs.getString("dniApd"));
                 listaAlm.add(alm);
             }
+            cn.close();
+            rs.close();
+            ps.close();
         } catch (SQLException e) {
-            System.out.println(e);
-        } finally {
-            try {
-                cn.close();
-            } catch (SQLException e) {
-                System.err.println(e);
-            }
+            System.out.println("ERROR al listar: " + e.getMessage());
         }
         return listaAlm;
 

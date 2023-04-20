@@ -55,12 +55,13 @@ public class VistaRegistrarAlumno extends javax.swing.JInternalFrame {
         jtblAlm = new javax.swing.JTable();
 
         setPreferredSize(new java.awt.Dimension(500, 500));
+        getContentPane().setLayout(new java.awt.BorderLayout());
 
         jPanel8.setLayout(new java.awt.GridLayout(3, 1));
 
         jPanel11.setLayout(new java.awt.GridLayout(2, 1));
 
-        jPanel1.setLayout(new java.awt.GridLayout());
+        jPanel1.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel1.setText("DNI:");
         jPanel1.add(jLabel1);
@@ -86,7 +87,7 @@ public class VistaRegistrarAlumno extends javax.swing.JInternalFrame {
 
         jPanel12.setLayout(new java.awt.GridLayout(2, 1));
 
-        jPanel3.setLayout(new java.awt.GridLayout());
+        jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
         jlbNomAlm.setText("NOMBRE:");
         jPanel3.add(jlbNomAlm);
@@ -137,13 +138,10 @@ public class VistaRegistrarAlumno extends javax.swing.JInternalFrame {
 
         jtblAlm.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7"
             }
         ));
         jScrollPane1.setViewportView(jtblAlm);
