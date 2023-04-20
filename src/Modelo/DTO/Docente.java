@@ -8,16 +8,18 @@ public class Docente {
     private String apMatDct;
     private String nomDct;
     private String sgNomDct;
+    private String fecNacDct;
 
     public Docente() {
     }
 
-    public Docente(String dniDct, String apPatDct, String apMatDct, String nomDct, String sgNomDct) {
+    public Docente(String dniDct, String apPatDct, String apMatDct, String nomDct, String sgNomDct, String fecNacDct) {
         this.dniDct = dniDct;
         this.apPatDct = apPatDct;
         this.apMatDct = apMatDct;
         this.nomDct = nomDct;
         this.sgNomDct = sgNomDct;
+        this.fecNacDct = fecNacDct;
     }
 
     public String getDniDct() {
@@ -58,6 +60,14 @@ public class Docente {
 
     public void setSgNomDct(String sgNomDct) {
         this.sgNomDct = sgNomDct;
+    }
+
+    public String getFecNacDct() {
+        return fecNacDct;
+    }
+
+    public void setFecNacDct(String fecNacDct) {
+        this.fecNacDct = fecNacDct;
     }
     
     

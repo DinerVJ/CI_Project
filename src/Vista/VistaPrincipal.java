@@ -5,8 +5,11 @@
 package Vista;
 
 import Controlador.ControladorAlumno;
+import Controlador.ControladorApoderado;
 import Modelo.DAO.AlumnoDAO;
+import Modelo.DAO.ApoderadoDAO;
 import Modelo.DTO.Alumno;
+import Modelo.DTO.Apoderado;
 
 /**
  *
@@ -20,7 +23,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
     public VistaPrincipal() {
         initComponents();
         setSize(800, 800);
-        jpnlDesk.setSize(750,700);
+        jpnlDesk.setSize(this.getWidth(),this.getHeight());
+        jdskVistaPrin.setSize(jpnlDesk.getWidth(), jpnlDesk.getHeight());
     }
 
     /**
@@ -38,6 +42,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jmnuAlm = new javax.swing.JMenu();
         jmniRegAlm = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jmniApd = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.BorderLayout());
@@ -74,6 +80,18 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jmnbVistaPrin.add(jmnuAlm);
 
+        jMenu2.setText("APODERADO");
+
+        jmniApd.setText("Apoderado");
+        jmniApd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmniApdActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jmniApd);
+
+        jmnbVistaPrin.add(jMenu2);
+
         setJMenuBar(jmnbVistaPrin);
 
         pack();
@@ -89,6 +107,17 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jdskVistaPrin.add(vra);
         vra.show();
     }//GEN-LAST:event_jmniRegAlmActionPerformed
+
+    private void jmniApdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmniApdActionPerformed
+        // TODO add your handling code here:
+        Apoderado apd = new Apoderado();
+        ApoderadoDAO dao = new ApoderadoDAO();
+        VistaApoderado vap = new VistaApoderado();
+        ControladorApoderado cap = new ControladorApoderado(apd, dao, vap);
+        cap.iniciarCtrApd();
+        jdskVistaPrin.add(vap);
+        vap.show();
+    }//GEN-LAST:event_jmniApdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,8 +156,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JDesktopPane jdskVistaPrin;
+    private javax.swing.JMenu jMenu2;
+    public javax.swing.JDesktopPane jdskVistaPrin;
     private javax.swing.JMenuBar jmnbVistaPrin;
+    private javax.swing.JMenuItem jmniApd;
     private javax.swing.JMenuItem jmniRegAlm;
     private javax.swing.JMenu jmnuAlm;
     private javax.swing.JPanel jpnlDesk;

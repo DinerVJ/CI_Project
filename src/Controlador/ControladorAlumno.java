@@ -28,7 +28,6 @@ public class ControladorAlumno implements ActionListener {
 
     public void iniciar() {
         vra.setTitle("REGISTRAR ALUMNO");
-        vra.setLocation(0, 0);
         listarAlm();
     }
 

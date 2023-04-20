@@ -13,8 +13,10 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
     /**
      * Creates new form VistaRegistrarApoderado
      */
+    VistaPrincipal vp = new VistaPrincipal();
     public VistaApoderado() {
         initComponents();
+        setSize(vp.jdskVistaPrin.getWidth(), vp.jdskVistaPrin.getHeight());
     }
 
     /**
@@ -49,7 +51,7 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
         jPanel6 = new javax.swing.JPanel();
         jbtnRegApd = new javax.swing.JButton();
         jbtnActApd = new javax.swing.JButton();
-        jbtnBorrApd = new javax.swing.JButton();
+        jbtnElmApd = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jtxtBusApd = new javax.swing.JTextField();
         jbtnBusApd = new javax.swing.JButton();
@@ -57,13 +59,15 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtblApd = new javax.swing.JTable();
 
+        getContentPane().setLayout(new java.awt.BorderLayout());
+
         jPanel1.setLayout(new java.awt.BorderLayout());
 
         jPanel2.setLayout(new java.awt.GridLayout(3, 1));
 
         jPanel4.setLayout(new java.awt.GridLayout(2, 1));
 
-        jPanel8.setLayout(new java.awt.GridLayout());
+        jPanel8.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel1.setText("DNI:");
         jPanel8.add(jLabel1);
@@ -87,7 +91,7 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
 
         jPanel5.setLayout(new java.awt.GridLayout(2, 1));
 
-        jPanel10.setLayout(new java.awt.GridLayout());
+        jPanel10.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel4.setText("NOMBRE:");
         jPanel10.add(jLabel4);
@@ -115,8 +119,8 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
         jbtnActApd.setText("ACTUALIZAR");
         jPanel6.add(jbtnActApd);
 
-        jbtnBorrApd.setText("BORRAR");
-        jPanel6.add(jbtnBorrApd);
+        jbtnElmApd.setText("BORRAR");
+        jPanel6.add(jbtnElmApd);
 
         jPanel2.add(jPanel6);
 
@@ -174,17 +178,17 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton jbtnActApd;
-    private javax.swing.JButton jbtnBorrApd;
-    private javax.swing.JButton jbtnBusApd;
-    private javax.swing.JButton jbtnRegApd;
-    private javax.swing.JTable jtblApd;
-    private javax.swing.JTextField jtxtApMatApd;
-    private javax.swing.JTextField jtxtApPatApd;
-    private javax.swing.JTextField jtxtBusApd;
-    private javax.swing.JTextField jtxtDniApd;
-    private javax.swing.JTextField jtxtFecNacApd;
-    private javax.swing.JTextField jtxtNomApd;
-    private javax.swing.JTextField jtxtSgNomApd;
+    public javax.swing.JButton jbtnActApd;
+    public javax.swing.JButton jbtnBusApd;
+    public javax.swing.JButton jbtnElmApd;
+    public javax.swing.JButton jbtnRegApd;
+    public javax.swing.JTable jtblApd;
+    public javax.swing.JTextField jtxtApMatApd;
+    public javax.swing.JTextField jtxtApPatApd;
+    public javax.swing.JTextField jtxtBusApd;
+    public javax.swing.JTextField jtxtDniApd;
+    public javax.swing.JTextField jtxtFecNacApd;
+    public javax.swing.JTextField jtxtNomApd;
+    public javax.swing.JTextField jtxtSgNomApd;
     // End of variables declaration//GEN-END:variables
 }
