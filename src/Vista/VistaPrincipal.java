@@ -4,7 +4,7 @@
  */
 package Vista;
 
-import Controlador.ControladorRegistrarAlumno;
+import Controlador.ControladorAlumno;
 import Modelo.DAO.AlumnoDAOImplement;
 import Modelo.DTO.Alumno;
 
@@ -19,6 +19,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
      */
     public VistaPrincipal() {
         initComponents();
+        setSize(750,700);
     }
 
     /**
@@ -76,7 +77,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         Alumno alm = new Alumno();
         AlumnoDAOImplement almdao = new AlumnoDAOImplement();
         VistaRegistrarAlumno vra = new VistaRegistrarAlumno();
-        ControladorRegistrarAlumno cralm = new ControladorRegistrarAlumno(alm, almdao, vra);
+        ControladorAlumno cralm = new ControladorAlumno(alm, almdao, vra);
         cralm.iniciar();
         jdskVistaPrin.add(vra);
         vra.show();

@@ -9,14 +9,14 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class ControladorRegistrarAlumno implements ActionListener {
+public class ControladorAlumno implements ActionListener {
 
     private Alumno alm;
     private AlumnoDAOImplement dao;
     private VistaRegistrarAlumno vra;
     DefaultTableModel dtblm = new DefaultTableModel();
 
-    public ControladorRegistrarAlumno(Alumno alm, AlumnoDAOImplement dao, VistaRegistrarAlumno vra) {
+    public ControladorAlumno(Alumno alm, AlumnoDAOImplement dao, VistaRegistrarAlumno vra) {
         this.alm = alm;
         this.dao = dao;
         this.vra = vra;
