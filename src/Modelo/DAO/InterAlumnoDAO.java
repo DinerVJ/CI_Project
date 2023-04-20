@@ -3,7 +3,7 @@ package Modelo.DAO;
 import Modelo.DTO.Alumno;
 import java.util.List;
 
-public interface IAlumnoDAO {
+public interface InterAlumnoDAO {
     public boolean crearAlumno(Alumno alm);
     public boolean leerAlumno(Alumno alm);
     public boolean actualizarAlumno(Alumno alm);

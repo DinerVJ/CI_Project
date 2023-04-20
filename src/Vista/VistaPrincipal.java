@@ -5,7 +5,7 @@
 package Vista;
 
 import Controlador.ControladorAlumno;
-import Modelo.DAO.AlumnoDAOImplement;
+import Modelo.DAO.AlumnoDAO;
 import Modelo.DTO.Alumno;
 
 /**
@@ -75,7 +75,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private void jmniRegAlmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmniRegAlmActionPerformed
         // TODO add your handling code here:
         Alumno alm = new Alumno();
-        AlumnoDAOImplement almdao = new AlumnoDAOImplement();
+        AlumnoDAO almdao = new AlumnoDAO();
         VistaRegistrarAlumno vra = new VistaRegistrarAlumno();
         ControladorAlumno cralm = new ControladorAlumno(alm, almdao, vra);
         cralm.iniciar();

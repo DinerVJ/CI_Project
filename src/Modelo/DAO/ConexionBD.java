@@ -4,7 +4,7 @@ import java.sql.*;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ConexionBD implements IConexionBDDAO{
+public class ConexionBD implements IntConexionBDDAO{
     
     private static Connection cn = null;
     

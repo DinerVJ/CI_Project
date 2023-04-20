@@ -1,6 +1,6 @@
 package Controlador;
 
-import Modelo.DAO.AlumnoDAOImplement;
+import Modelo.DAO.AlumnoDAO;
 import Modelo.DTO.Alumno;
 import Vista.VistaRegistrarAlumno;
 import java.awt.event.ActionEvent;
@@ -12,11 +12,11 @@ import javax.swing.table.DefaultTableModel;
 public class ControladorAlumno implements ActionListener {
 
     private Alumno alm;
-    private AlumnoDAOImplement dao;
+    private AlumnoDAO dao;
     private VistaRegistrarAlumno vra;
     DefaultTableModel dtblm = new DefaultTableModel();
 
-    public ControladorAlumno(Alumno alm, AlumnoDAOImplement dao, VistaRegistrarAlumno vra) {
+    public ControladorAlumno(Alumno alm, AlumnoDAO dao, VistaRegistrarAlumno vra) {
         this.alm = alm;
         this.dao = dao;
         this.vra = vra;

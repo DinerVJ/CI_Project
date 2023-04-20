@@ -1,5 +1,5 @@
 package Modelo.DAO;
 
-public interface IPagoDAO {
+public class DocenteDAO {
     
 }

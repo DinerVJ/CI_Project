@@ -10,7 +10,7 @@ import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class AlumnoDAOImplement implements IAlumnoDAO {
+public class AlumnoDAO implements InterAlumnoDAO {
 
     private Connection cn;
 
