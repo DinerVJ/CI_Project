@@ -147,6 +147,11 @@
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                       </AuxValues>
                     </Component>
+                    <Component class="com.toedter.calendar.JDateChooser" name="jdtcFecNacApd">
+                      <Properties>
+                        <Property name="dateFormatString" type="java.lang.String" value="dd mm yyyy"/>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
               </SubComponents>
