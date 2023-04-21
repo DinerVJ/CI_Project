@@ -2,39 +2,30 @@
 package Controlador;
 
 import Modelo.DAO.DocenteDAO;
+import Modelo.DAO.OtrosMetodos;
 import Modelo.DTO.Docente;
 import Vista.VistaDocente;
-import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
 
 public class ControladorDocente implements ActionListener{
 
     private Docente dct;
     private DocenteDAO dao;
     private VistaDocente vd;
+    private OtrosMetodos om;
     DefaultTableModel dtm = new DefaultTableModel();
 
-    public ControladorDocente(Docente dct, DocenteDAO dao, VistaDocente vd) {
+    public ControladorDocente(Docente dct, DocenteDAO dao, VistaDocente vd, OtrosMetodos om) {
         this.dct = dct;
         this.dao = dao;
         this.vd = vd;
+        this.om = om;
         vd.jbtnRegDct.addActionListener(this);
         vd.jbtnBusDct.addActionListener(this);
         vd.jbtnActDct.addActionListener(this);
@@ -119,7 +110,7 @@ public class ControladorDocente implements ActionListener{
         }
         if (e.getSource() == vd.jbtnExpDct) {
             try {
-                exportarDatosDocente(vd.jtblDct);
+                om.exportarDatosDocente(vd.jtblDct);
             } catch (IOException ex) {
                 //Logger.getLogger(ControladorDocente.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -151,55 +142,4 @@ public class ControladorDocente implements ActionListener{
         vd.jtblDct.setModel(dtm);
     }
     
-    public void exportarDatosDocente(JTable jtbl) throws IOException{
-        JFileChooser chooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("ReportesExcel", "xls");
-        chooser.setFileFilter(filter);
-        chooser.setDialogTitle("Guardar archivo");
-        chooser.setAcceptAllFileFilterUsed(false);
-        if (chooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
-            String ruta = chooser.getSelectedFile().toString().concat(".xls");
-            try {
-                File archivoXLS = new File(ruta);
-                if (archivoXLS.exists()) {
-                    archivoXLS.delete();
-                } else {
-                }
-                archivoXLS.createNewFile();
-                Workbook libro = new HSSFWorkbook();
-                FileOutputStream archivo = new FileOutputStream(archivoXLS);
-                Sheet hoja = libro.createSheet("Datos de Docentes");
-                hoja.setDisplayGridlines(false);
-                for (int f = 0; f < jtbl.getRowCount(); f++) {
-                    Row fila = hoja.createRow(f);
-                    for (int c = 0; c < jtbl.getColumnCount(); c++) {
-                        Cell celda = fila.createCell(c);
-                        if (f == 0) {
-                            celda.setCellValue(jtbl.getColumnName(c));
-                        }
-                    }
-                }
-                int filaInicio = 1;
-                for (int f = 0; f < jtbl.getRowCount(); f++) {
-                    Row fila = hoja.createRow(filaInicio);
-                    filaInicio++;
-                    for (int c = 0; c < jtbl.getColumnCount(); c++) {
-                        Cell celda = fila.createCell(c);
-                        if (jtbl.getValueAt(f, c) instanceof Double) {
-                            celda.setCellValue(Double.parseDouble(jtbl.getValueAt(f, c).toString()));
-                        } else if (jtbl.getValueAt(f, c) instanceof Float) {
-                            celda.setCellValue(Float.parseFloat((String)jtbl.getValueAt(f, c)));
-                        } else {
-                            celda.setCellValue(String.valueOf(jtbl.getValueAt(f, c)));
-                        }
-                    }
-                }
-                libro.write(archivo);
-                archivo.close();
-                Desktop.getDesktop().open(archivoXLS);
-            } catch (IOException | NumberFormatException e) {
-                throw e;
-            }
-        }
-    }
 }

@@ -1,10 +1,12 @@
 package Controlador;
 
 import Modelo.DAO.AlumnoDAO;
+import Modelo.DAO.OtrosMetodos;
 import Modelo.DTO.Alumno;
 import Vista.VistaAlumno;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -15,16 +17,19 @@ public class ControladorAlumno implements ActionListener {
     private Alumno alm;
     private AlumnoDAO dao;
     private VistaAlumno vra;
+    private OtrosMetodos om;
     DefaultTableModel dtblm = new DefaultTableModel();
 
-    public ControladorAlumno(Alumno alm, AlumnoDAO dao, VistaAlumno vra) {
+    public ControladorAlumno(Alumno alm, AlumnoDAO dao, VistaAlumno vra, OtrosMetodos om) {
         this.alm = alm;
         this.dao = dao;
         this.vra = vra;
+        this.om = om;
         this.vra.jbtnRegAlm.addActionListener(this);
         this.vra.jbtnActAlm.addActionListener(this);
         this.vra.jbtnElmAlm.addActionListener(this);
         this.vra.jbtnBusAlm.addActionListener(this);
+        this.vra.jbtnExpAlm.addActionListener(this);
     }
 
     public void iniciar() {
@@ -104,6 +109,13 @@ public class ControladorAlumno implements ActionListener {
                 JOptionPane.showMessageDialog(null, "¡ERROR! No se eliminó registro");
             }
         }
+        if (e.getSource() == vra.jbtnExpAlm) {
+            try {
+                om.exportarDatosDocente(vra.jtblAlm);
+            } catch (IOException ex) {
+                //Logger.getLogger(ControladorDocente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
     public void limpiar() {
@@ -132,4 +144,6 @@ public class ControladorAlumno implements ActionListener {
         }
         vra.jtblAlm.setModel(dtblm);
     }
+    
+    
 }

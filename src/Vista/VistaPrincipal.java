@@ -10,6 +10,7 @@ import Controlador.ControladorDocente;
 import Modelo.DAO.AlumnoDAO;
 import Modelo.DAO.ApoderadoDAO;
 import Modelo.DAO.DocenteDAO;
+import Modelo.DAO.OtrosMetodos;
 import Modelo.DTO.Alumno;
 import Modelo.DTO.Apoderado;
 import Modelo.DTO.Docente;
@@ -118,7 +119,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
         Alumno alm = new Alumno();
         AlumnoDAO almdao = new AlumnoDAO();
         VistaAlumno vra = new VistaAlumno();
-        ControladorAlumno cralm = new ControladorAlumno(alm, almdao, vra);
+        OtrosMetodos om = new OtrosMetodos();
+        ControladorAlumno cralm = new ControladorAlumno(alm, almdao, vra, om);
         cralm.iniciar();
         jdskVistaPrin.add(vra);
         vra.show();
@@ -129,7 +131,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
         Apoderado apd = new Apoderado();
         ApoderadoDAO dao = new ApoderadoDAO();
         VistaApoderado vap = new VistaApoderado();
-        ControladorApoderado cap = new ControladorApoderado(apd, dao, vap);
+        OtrosMetodos om = new OtrosMetodos();
+        ControladorApoderado cap = new ControladorApoderado(apd, dao, vap, om);
         cap.iniciarCtrApd();
         jdskVistaPrin.add(vap);
         vap.show();
@@ -140,7 +143,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
         Docente dct = new Docente();
         DocenteDAO dao = new DocenteDAO();
         VistaDocente vd = new VistaDocente();
-        ControladorDocente cd = new ControladorDocente(dct, dao, vd);
+        OtrosMetodos om = new OtrosMetodos();
+        ControladorDocente cd = new ControladorDocente(dct, dao, vd, om);
         cd.iniciarCtrDct();
         jdskVistaPrin.add(vd);
         vd.show();

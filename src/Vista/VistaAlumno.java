@@ -49,6 +49,9 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
         jbtnActAlm = new javax.swing.JButton();
         jbtnElmAlm = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jbtnExpAlm = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
         jtxtBusAlm = new javax.swing.JTextField();
         jbtnBusAlm = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
@@ -56,7 +59,6 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
         jtblAlm = new javax.swing.JTable();
 
         setPreferredSize(new java.awt.Dimension(500, 500));
-        getContentPane().setLayout(new java.awt.BorderLayout());
 
         jPanel8.setLayout(new java.awt.GridLayout(3, 1));
 
@@ -127,11 +129,20 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
 
         getContentPane().add(jPanel8, java.awt.BorderLayout.PAGE_START);
 
-        jPanel9.setLayout(new javax.swing.BoxLayout(jPanel9, javax.swing.BoxLayout.LINE_AXIS));
-        jPanel9.add(jtxtBusAlm);
+        jPanel9.setLayout(new java.awt.GridLayout(2, 0));
+
+        jbtnExpAlm.setText("EXPORTAR");
+        jPanel5.add(jbtnExpAlm);
+
+        jPanel9.add(jPanel5);
+
+        jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel6.add(jtxtBusAlm);
 
         jbtnBusAlm.setText("BUSCAR");
-        jPanel9.add(jbtnBusAlm);
+        jPanel6.add(jbtnBusAlm);
+
+        jPanel9.add(jPanel6);
 
         getContentPane().add(jPanel9, java.awt.BorderLayout.PAGE_END);
 
@@ -167,12 +178,15 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JButton jbtnActAlm;
     public javax.swing.JButton jbtnBusAlm;
     public javax.swing.JButton jbtnElmAlm;
+    public javax.swing.JButton jbtnExpAlm;
     public javax.swing.JButton jbtnRegAlm;
     private javax.swing.JLabel jlbNomAlm;
     private javax.swing.JLabel jlbldniApd;

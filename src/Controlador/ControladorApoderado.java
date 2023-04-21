@@ -2,10 +2,12 @@
 package Controlador;
 
 import Modelo.DAO.ApoderadoDAO;
+import Modelo.DAO.OtrosMetodos;
 import Modelo.DTO.Apoderado;
 import Vista.VistaApoderado;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -16,12 +18,19 @@ public class ControladorApoderado implements ActionListener{
     private Apoderado apd;
     private ApoderadoDAO dao;
     private VistaApoderado vap;
+    private OtrosMetodos om;
     DefaultTableModel dtm = new DefaultTableModel();
 
-    public ControladorApoderado(Apoderado apd, ApoderadoDAO dao, VistaApoderado vap) {
+    public ControladorApoderado(Apoderado apd, ApoderadoDAO dao, VistaApoderado vap, OtrosMetodos om) {
         this.apd = apd;
         this.dao = dao;
         this.vap = vap;
+        this.om = om;
+        this.vap.jbtnRegApd.addActionListener(this);
+        this.vap.jbtnBusApd.addActionListener(this);
+        this.vap.jbtnActApd.addActionListener(this);
+        this.vap.jbtnElmApd.addActionListener(this);
+        this.vap.jbtnExpApd.addActionListener(this);
     }
     
     public void iniciarCtrApd(){
@@ -97,6 +106,13 @@ public class ControladorApoderado implements ActionListener{
                 JOptionPane.showMessageDialog(null, "¡ERROR! No se eliminó registro");
             }
             listarApd();
+        }
+        if (e.getSource() == vap.jbtnExpApd) {
+            try {
+                om.exportarDatosDocente(vap.jtblApd);
+            } catch (IOException ex) {
+                //Logger.getLogger(ControladorDocente.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
     

@@ -48,12 +48,14 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
         jtxtNomApd = new javax.swing.JTextField();
         jtxtSgNomApd = new javax.swing.JTextField();
         jtxtFecNacApd = new javax.swing.JTextField();
-        jdtcFecNacApd = new com.toedter.calendar.JDateChooser();
         jPanel6 = new javax.swing.JPanel();
         jbtnRegApd = new javax.swing.JButton();
         jbtnActApd = new javax.swing.JButton();
         jbtnElmApd = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jbtnExpApd = new javax.swing.JButton();
+        jPanel13 = new javax.swing.JPanel();
         jtxtBusApd = new javax.swing.JTextField();
         jbtnBusApd = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
@@ -108,9 +110,6 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
         jPanel11.add(jtxtSgNomApd);
         jPanel11.add(jtxtFecNacApd);
 
-        jdtcFecNacApd.setDateFormatString("dd mm yyyy");
-        jPanel11.add(jdtcFecNacApd);
-
         jPanel5.add(jPanel11);
 
         jPanel2.add(jPanel5);
@@ -128,11 +127,20 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
-        jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
-        jPanel3.add(jtxtBusApd);
+        jPanel3.setLayout(new java.awt.GridLayout(2, 0));
+
+        jbtnExpApd.setText("EXPORTAR");
+        jPanel12.add(jbtnExpApd);
+
+        jPanel3.add(jPanel12);
+
+        jPanel13.setLayout(new javax.swing.BoxLayout(jPanel13, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel13.add(jtxtBusApd);
 
         jbtnBusApd.setText("BUSCAR");
-        jPanel3.add(jbtnBusApd);
+        jPanel13.add(jbtnBusApd);
+
+        jPanel3.add(jPanel13);
 
         jPanel1.add(jPanel3, java.awt.BorderLayout.PAGE_END);
 
@@ -171,6 +179,8 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -183,8 +193,8 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
     public javax.swing.JButton jbtnActApd;
     public javax.swing.JButton jbtnBusApd;
     public javax.swing.JButton jbtnElmApd;
+    public javax.swing.JButton jbtnExpApd;
     public javax.swing.JButton jbtnRegApd;
-    private com.toedter.calendar.JDateChooser jdtcFecNacApd;
     public javax.swing.JTable jtblApd;
     public javax.swing.JTextField jtxtApMatApd;
     public javax.swing.JTextField jtxtApPatApd;
