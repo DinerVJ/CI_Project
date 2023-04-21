@@ -52,6 +52,9 @@ public class VistaDocente extends javax.swing.JInternalFrame {
         jbtnActDct = new javax.swing.JButton();
         jbtnElmDct = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jbtnExpDct = new javax.swing.JButton();
+        jPanel13 = new javax.swing.JPanel();
         jtxtBusDct = new javax.swing.JTextField();
         jbtnBusDct = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
@@ -64,7 +67,7 @@ public class VistaDocente extends javax.swing.JInternalFrame {
 
         jPanel4.setLayout(new java.awt.GridLayout(2, 1));
 
-        jPanel8.setLayout(new java.awt.GridLayout());
+        jPanel8.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel1.setText("DNI:");
         jPanel8.add(jLabel1);
@@ -88,7 +91,7 @@ public class VistaDocente extends javax.swing.JInternalFrame {
 
         jPanel5.setLayout(new java.awt.GridLayout(2, 1));
 
-        jPanel10.setLayout(new java.awt.GridLayout());
+        jPanel10.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel4.setText("NOMBRE:");
         jPanel10.add(jLabel4);
@@ -123,11 +126,20 @@ public class VistaDocente extends javax.swing.JInternalFrame {
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
-        jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
-        jPanel3.add(jtxtBusDct);
+        jPanel3.setLayout(new java.awt.GridLayout(2, 1));
+
+        jbtnExpDct.setText("EXPORTAR");
+        jPanel12.add(jbtnExpDct);
+
+        jPanel3.add(jPanel12);
+
+        jPanel13.setLayout(new javax.swing.BoxLayout(jPanel13, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel13.add(jtxtBusDct);
 
         jbtnBusDct.setText("BUSCAR");
-        jPanel3.add(jbtnBusDct);
+        jPanel13.add(jbtnBusDct);
+
+        jPanel3.add(jPanel13);
 
         jPanel1.add(jPanel3, java.awt.BorderLayout.PAGE_END);
 
@@ -166,6 +178,8 @@ public class VistaDocente extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -178,6 +192,7 @@ public class VistaDocente extends javax.swing.JInternalFrame {
     public javax.swing.JButton jbtnActDct;
     public javax.swing.JButton jbtnBusDct;
     public javax.swing.JButton jbtnElmDct;
+    public javax.swing.JButton jbtnExpDct;
     public javax.swing.JButton jbtnRegDct;
     public javax.swing.JTable jtblDct;
     public javax.swing.JTextField jtxtApMatDct;

@@ -6,10 +6,13 @@ package Vista;
 
 import Controlador.ControladorAlumno;
 import Controlador.ControladorApoderado;
+import Controlador.ControladorDocente;
 import Modelo.DAO.AlumnoDAO;
 import Modelo.DAO.ApoderadoDAO;
+import Modelo.DAO.DocenteDAO;
 import Modelo.DTO.Alumno;
 import Modelo.DTO.Apoderado;
+import Modelo.DTO.Docente;
 
 /**
  *
@@ -44,9 +47,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jmniRegAlm = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jmniApd = new javax.swing.JMenuItem();
+        jmnDct = new javax.swing.JMenu();
+        jmniDct = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.BorderLayout());
 
         jpnlDesk.setLayout(new java.awt.BorderLayout());
 
@@ -68,7 +72,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenu1.setText("File");
         jmnbVistaPrin.add(jMenu1);
 
-        jmnuAlm.setText("Alumno");
+        jmnuAlm.setText("ALUMNO");
 
         jmniRegAlm.setText("Registrar Alumno");
         jmniRegAlm.addActionListener(new java.awt.event.ActionListener() {
@@ -91,6 +95,18 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenu2.add(jmniApd);
 
         jmnbVistaPrin.add(jMenu2);
+
+        jmnDct.setText("DOCENTE");
+
+        jmniDct.setText("Docente");
+        jmniDct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmniDctActionPerformed(evt);
+            }
+        });
+        jmnDct.add(jmniDct);
+
+        jmnbVistaPrin.add(jmnDct);
 
         setJMenuBar(jmnbVistaPrin);
 
@@ -118,6 +134,17 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jdskVistaPrin.add(vap);
         vap.show();
     }//GEN-LAST:event_jmniApdActionPerformed
+
+    private void jmniDctActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmniDctActionPerformed
+        // TODO add your handling code here:
+        Docente dct = new Docente();
+        DocenteDAO dao = new DocenteDAO();
+        VistaDocente vd = new VistaDocente();
+        ControladorDocente cd = new ControladorDocente(dct, dao, vd);
+        cd.iniciarCtrDct();
+        jdskVistaPrin.add(vd);
+        vd.show();
+    }//GEN-LAST:event_jmniDctActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,8 +185,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     public javax.swing.JDesktopPane jdskVistaPrin;
+    public javax.swing.JMenu jmnDct;
     private javax.swing.JMenuBar jmnbVistaPrin;
     private javax.swing.JMenuItem jmniApd;
+    public javax.swing.JMenuItem jmniDct;
     private javax.swing.JMenuItem jmniRegAlm;
     private javax.swing.JMenu jmnuAlm;
     private javax.swing.JPanel jpnlDesk;

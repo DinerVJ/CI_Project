@@ -11,7 +11,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jmnuAlm">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Alumno"/>
+            <Property name="text" type="java.lang.String" value="ALUMNO"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jmniRegAlm">
@@ -36,6 +36,27 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmniApdActionPerformed"/>
               </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jmnDct">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="DOCENTE"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jmniDct">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Docente"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmniDctActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </MenuItem>
           </SubComponents>
         </Menu>

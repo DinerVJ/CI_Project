@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class ControladorApoderado implements ActionListener{
@@ -24,8 +25,15 @@ public class ControladorApoderado implements ActionListener{
     }
     
     public void iniciarCtrApd(){
-        vap.setTitle("XDDX");
+        vap.setTitle("DATOS DE APODERADO");
+        mostrarEncabezados(vap.jtblApd);
         listarApd();
+    }
+    
+    public void mostrarEncabezados(JTable tbl){
+        String[] encabezado = {"DNI","APELL. PATERNO","APELL. MATERNO","NOMBRE","SEG. NOMBRE","FEC. NAC."};
+        DefaultTableModel dtm = new DefaultTableModel(null,encabezado);
+        tbl.setModel(dtm);
     }
     
     @Override

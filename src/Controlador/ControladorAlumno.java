@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class ControladorAlumno implements ActionListener {
@@ -27,10 +28,17 @@ public class ControladorAlumno implements ActionListener {
     }
 
     public void iniciar() {
-        vra.setTitle("REGISTRAR ALUMNO");
+        vra.setTitle("DATOS DE ALUMNO");
+        mostrarEncabezados(vra.jtblAlm);
         listarAlm();
     }
 
+    public void mostrarEncabezados(JTable tbl){
+        String[] encabezado = {"DNI","APELL. PATERNO","APELL. MATERNO","NOMBRE","SEG. NOMBRE","FEC. NAC.","DNI APODERADO"};
+        DefaultTableModel dtm = new DefaultTableModel(null,encabezado);
+        tbl.setModel(dtm);
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
 

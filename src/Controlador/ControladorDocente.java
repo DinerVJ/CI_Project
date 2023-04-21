@@ -4,11 +4,25 @@ package Controlador;
 import Modelo.DAO.DocenteDAO;
 import Modelo.DTO.Docente;
 import Vista.VistaDocente;
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 
 public class ControladorDocente implements ActionListener{
 
@@ -25,11 +39,20 @@ public class ControladorDocente implements ActionListener{
         vd.jbtnBusDct.addActionListener(this);
         vd.jbtnActDct.addActionListener(this);
         vd.jbtnElmDct.addActionListener(this);
+        vd.jbtnExpDct.addActionListener(this);
     }
     
     public void iniciarCtrDct(){
         vd.setTitle("DATOS DEL DOCENTE");
+        mostrarEncabezados(vd.jtblDct);
         listarDct();
+        
+    }
+    
+    public void mostrarEncabezados(JTable tbl){
+        String[] encabezado = {"DNI","APELL. PATERNO","APELL. MATERNO","NOMBRE","SEG. NOMBRE","FEC. DE NAC."};
+        DefaultTableModel dtm = new DefaultTableModel(null,encabezado);
+        tbl.setModel(dtm);
     }
     
     @Override
@@ -42,10 +65,10 @@ public class ControladorDocente implements ActionListener{
             dct.setSgNomDct(vd.jtxtSgNomDct.getText());
             dct.setFecNacDct(vd.jtxtFecNacDct.getText());
             if (dao.crearDocente(dct)) {
-                JOptionPane.showMessageDialog(null, "APODERADO REGISTRADO EXITOSAMENTE!");
+                JOptionPane.showMessageDialog(null, "EXITO! Docente registrado.");
                 limpiar();
             } else {
-                JOptionPane.showMessageDialog(null, "ERROR AL REGISTRAR ALUMNO!");
+                JOptionPane.showMessageDialog(null, "ERROR! No se guardo el registro.");
             }
             listarDct();
         }
@@ -94,6 +117,13 @@ public class ControladorDocente implements ActionListener{
             }
             listarDct();
         }
+        if (e.getSource() == vd.jbtnExpDct) {
+            try {
+                exportarDatosDocente(vd.jtblDct);
+            } catch (IOException ex) {
+                //Logger.getLogger(ControladorDocente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
     
     public void limpiar(){
@@ -119,5 +149,57 @@ public class ControladorDocente implements ActionListener{
             dtm.addRow(ob);
         }
         vd.jtblDct.setModel(dtm);
+    }
+    
+    public void exportarDatosDocente(JTable jtbl) throws IOException{
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("ReportesExcel", "xls");
+        chooser.setFileFilter(filter);
+        chooser.setDialogTitle("Guardar archivo");
+        chooser.setAcceptAllFileFilterUsed(false);
+        if (chooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+            String ruta = chooser.getSelectedFile().toString().concat(".xls");
+            try {
+                File archivoXLS = new File(ruta);
+                if (archivoXLS.exists()) {
+                    archivoXLS.delete();
+                } else {
+                }
+                archivoXLS.createNewFile();
+                Workbook libro = new HSSFWorkbook();
+                FileOutputStream archivo = new FileOutputStream(archivoXLS);
+                Sheet hoja = libro.createSheet("Datos de Docentes");
+                hoja.setDisplayGridlines(false);
+                for (int f = 0; f < jtbl.getRowCount(); f++) {
+                    Row fila = hoja.createRow(f);
+                    for (int c = 0; c < jtbl.getColumnCount(); c++) {
+                        Cell celda = fila.createCell(c);
+                        if (f == 0) {
+                            celda.setCellValue(jtbl.getColumnName(c));
+                        }
+                    }
+                }
+                int filaInicio = 1;
+                for (int f = 0; f < jtbl.getRowCount(); f++) {
+                    Row fila = hoja.createRow(filaInicio);
+                    filaInicio++;
+                    for (int c = 0; c < jtbl.getColumnCount(); c++) {
+                        Cell celda = fila.createCell(c);
+                        if (jtbl.getValueAt(f, c) instanceof Double) {
+                            celda.setCellValue(Double.parseDouble(jtbl.getValueAt(f, c).toString()));
+                        } else if (jtbl.getValueAt(f, c) instanceof Float) {
+                            celda.setCellValue(Float.parseFloat((String)jtbl.getValueAt(f, c)));
+                        } else {
+                            celda.setCellValue(String.valueOf(jtbl.getValueAt(f, c)));
+                        }
+                    }
+                }
+                libro.write(archivo);
+                archivo.close();
+                Desktop.getDesktop().open(archivoXLS);
+            } catch (IOException | NumberFormatException e) {
+                throw e;
+            }
+        }
     }
 }

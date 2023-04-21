@@ -60,8 +60,6 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtblApd = new javax.swing.JTable();
 
-        getContentPane().setLayout(new java.awt.BorderLayout());
-
         jPanel1.setLayout(new java.awt.BorderLayout());
 
         jPanel2.setLayout(new java.awt.GridLayout(3, 1));
