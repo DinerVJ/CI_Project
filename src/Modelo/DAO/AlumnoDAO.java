@@ -1,7 +1,7 @@
 package Modelo.DAO;
 
 import Modelo.DTO.Alumno;
-import Vista.VistaAlumno;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.*;
@@ -26,7 +26,7 @@ public class AlumnoDAO implements IntAlumnoDAO {
             ps.setString(3, alm.getApMatAlm());
             ps.setString(4, alm.getNomAlm());
             ps.setString(5, alm.getSgNomAlm());
-            ps.setString(6, alm.getFecNacAlm());
+            ps.setDate(6, new java.sql.Date(alm.getFecNacAlm().getTime()));
             ps.setString(7, alm.getDniApd());
             ps.executeUpdate();
             return true;
@@ -57,7 +57,7 @@ public class AlumnoDAO implements IntAlumnoDAO {
                 alm.setApMatAlm(rs.getString("apMatAlm"));
                 alm.setNomAlm(rs.getString("nomAlm"));
                 alm.setSgNomAlm(rs.getString("sgNomAlm"));
-                alm.setFecNacAlm(rs.getString("fecNacAlm"));
+                alm.setFecNacAlm(rs.getDate("fecNacAlm"));
                 alm.setDniApd(rs.getString("dniApd"));
                 return true;
             }
@@ -85,7 +85,7 @@ public class AlumnoDAO implements IntAlumnoDAO {
             ps.setString(2, alm.getApMatAlm());
             ps.setString(3, alm.getNomAlm());
             ps.setString(4, alm.getSgNomAlm());
-            ps.setString(5, alm.getFecNacAlm());
+            ps.setDate(5, (Date) alm.getFecNacAlm());
             ps.setString(6, alm.getDniApd());
             ps.setString(7, alm.getDniAlm());
             ps.execute();
@@ -139,7 +139,7 @@ public class AlumnoDAO implements IntAlumnoDAO {
                 alm.setApMatAlm(rs.getString("apMatAlm"));
                 alm.setNomAlm(rs.getString("nomAlm"));
                 alm.setSgNomAlm(rs.getString("sgNomAlm"));
-                alm.setFecNacAlm(rs.getString("fecNacAlm"));
+                alm.setFecNacAlm(rs.getDate("fecNacAlm"));
                 alm.setDniApd(rs.getString("dniApd"));
                 listaAlm.add(alm);
             }

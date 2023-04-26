@@ -7,10 +7,13 @@ import Vista.VistaAlumno;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import com.toedter.calendar.JDateChooser;
 
 public class ControladorAlumno implements ActionListener {
 
@@ -36,6 +39,7 @@ public class ControladorAlumno implements ActionListener {
         vra.setTitle("DATOS DE ALUMNO");
         mostrarEncabezados(vra.jtblAlm);
         listarAlm();
+        formatoFecha();
     }
 
     public void mostrarEncabezados(JTable tbl){
@@ -53,7 +57,7 @@ public class ControladorAlumno implements ActionListener {
             alm.setApMatAlm(vra.jtxtApMatAlm.getText());
             alm.setNomAlm(vra.jtxtNomAlm.getText());
             alm.setSgNomAlm(vra.jtxtSgNomAlm.getText());
-            alm.setFecNacAlm(vra.jtxtFecNacAlm.getText());
+            alm.setFecNacAlm(vra.jdtcFecNacAlm.getDate());
             alm.setDniApd(vra.jtxtDniApd.getText());
             if (dao.crearAlumno(alm)) {
                 JOptionPane.showMessageDialog(null, "ALUMNO REGISTRADO EXITOSAMENTE!");
@@ -72,7 +76,7 @@ public class ControladorAlumno implements ActionListener {
                 vra.jtxtApMatAlm.setText(alm.getApMatAlm());
                 vra.jtxtNomAlm.setText(alm.getNomAlm());
                 vra.jtxtSgNomAlm.setText(alm.getSgNomAlm());
-                vra.jtxtFecNacAlm.setText(alm.getFecNacAlm());
+                vra.jdtcFecNacAlm.setDate(alm.getFecNacAlm());
                 vra.jtxtDniApd.setText(alm.getDniApd());
                 vra.jtxtBusAlm.setText(null);
             } else {
@@ -88,7 +92,7 @@ public class ControladorAlumno implements ActionListener {
                 alm.setApMatAlm(vra.jtxtApMatAlm.getText());
                 alm.setNomAlm(vra.jtxtNomAlm.getText());
                 alm.setSgNomAlm(vra.jtxtSgNomAlm.getText());
-                alm.setFecNacAlm(vra.jtxtFecNacAlm.getText());
+                alm.setFecNacAlm(vra.jdtcFecNacAlm.getDate());
                 alm.setDniApd(vra.jtxtDniApd.getText());
                 if (dao.actualizarAlumno(alm)) {
                     JOptionPane.showMessageDialog(null, "EXITO! Registro actualizado.");
@@ -124,7 +128,7 @@ public class ControladorAlumno implements ActionListener {
         vra.jtxtApMatAlm.setText(null);
         vra.jtxtNomAlm.setText(null);
         vra.jtxtSgNomAlm.setText(null);
-        vra.jtxtFecNacAlm.setText(null);
+        vra.jdtcFecNacAlm.setDate(null);
         vra.jtxtDniApd.setText(null);
     }
     
@@ -145,5 +149,12 @@ public class ControladorAlumno implements ActionListener {
         vra.jtblAlm.setModel(dtblm);
     }
     
+    public void formatoFecha(){
+        vra.jdtcFecNacAlm.setDateFormatString("yyyy-MM-dd");
+    }
     
+    public void guadarFecha(){
+        Date fecSelect = vra.jdtcFecNacAlm.getDate();
+        alm.setFecNacAlm(fecSelect);
+    }
 }

@@ -1,6 +1,8 @@
 package Principal;
 
+import Modelo.DTO.Alumno;
 import Vista.VistaPrincipal;
+import javax.swing.JOptionPane;
 
 public class Principal {
 

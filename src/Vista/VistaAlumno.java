@@ -43,6 +43,7 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
         jtxtNomAlm = new javax.swing.JTextField();
         jtxtSgNomAlm = new javax.swing.JTextField();
         jtxtFecNacAlm = new javax.swing.JTextField();
+        jdtcFecNacAlm = new com.toedter.calendar.JDateChooser();
         jtxtDniApd = new javax.swing.JTextField();
         jPanel13 = new javax.swing.JPanel();
         jbtnRegAlm = new javax.swing.JButton();
@@ -110,11 +111,16 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
         jPanel4.add(jtxtNomAlm);
         jPanel4.add(jtxtSgNomAlm);
         jPanel4.add(jtxtFecNacAlm);
+
+        jdtcFecNacAlm.setDateFormatString("yyyy-MM-dd");
+        jPanel4.add(jdtcFecNacAlm);
         jPanel4.add(jtxtDniApd);
 
         jPanel12.add(jPanel4);
 
         jPanel8.add(jPanel12);
+
+        jPanel13.setBackground(new java.awt.Color(0, 0, 153));
 
         jbtnRegAlm.setText("REGISTRAR");
         jPanel13.add(jbtnRegAlm);
@@ -188,6 +194,7 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
     public javax.swing.JButton jbtnElmAlm;
     public javax.swing.JButton jbtnExpAlm;
     public javax.swing.JButton jbtnRegAlm;
+    public com.toedter.calendar.JDateChooser jdtcFecNacAlm;
     private javax.swing.JLabel jlbNomAlm;
     private javax.swing.JLabel jlbldniApd;
     private javax.swing.JLabel jlblfecNacAlm;

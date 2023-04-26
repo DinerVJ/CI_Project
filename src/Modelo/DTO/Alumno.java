@@ -1,19 +1,21 @@
 
 package Modelo.DTO;
 
+import java.util.Date;
+
 public class Alumno {
     private String dniAlm;
     private String apPatAlm;
     private String apMatAlm;
     private String nomAlm;
     private String sgNomAlm;
-    private String fecNacAlm;
+    private Date fecNacAlm;
     private String dniApd;
 
     public Alumno(){
         
     }
-    public Alumno(String dniAlm, String apPatAlm, String apMatAlm, String nomAlm, String sgNomAlm, String fecNacAlm, String dniApd) {
+    public Alumno(String dniAlm, String apPatAlm, String apMatAlm, String nomAlm, String sgNomAlm, Date fecNacAlm, String dniApd) {
         this.dniAlm = dniAlm;
         this.apPatAlm = apPatAlm;
         this.apMatAlm = apMatAlm;
@@ -63,11 +65,11 @@ public class Alumno {
         this.sgNomAlm = sgNomAlm;
     }
 
-    public String getFecNacAlm() {
+    public Date getFecNacAlm() {
         return fecNacAlm;
     }
 
-    public void setFecNacAlm(String fecNacAlm) {
+    public void setFecNacAlm(Date fecNacAlm) {
         this.fecNacAlm = fecNacAlm;
     }
 
