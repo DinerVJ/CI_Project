@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 
 public class AlumnoDAO implements IntAlumnoDAO {
 
@@ -18,7 +16,7 @@ public class AlumnoDAO implements IntAlumnoDAO {
     public boolean crearAlumno(Alumno alm) {
         PreparedStatement ps = null;
         cn = ConexionBD.conectar();
-        String sql = "insert into alumno(dniAlm,apPatAlm,apMatAlm,nomAlm,sgNomAlm,fecNacAlm,dniApd)values(?,?,?,?,?,?,?)";
+        String sql = "insert into alumno(dniAlm,apPatAlm,apMatAlm,nomAlm,sgNomAlm,fecNacAlm,dniApd,gradoAlm,seccionAlm)values(?,?,?,?,?,?,?,?,?)";
         try {
             ps = cn.prepareStatement(sql);
             ps.setString(1, alm.getDniAlm());
@@ -28,6 +26,8 @@ public class AlumnoDAO implements IntAlumnoDAO {
             ps.setString(5, alm.getSgNomAlm());
             ps.setDate(6, new java.sql.Date(alm.getFecNacAlm().getTime()));
             ps.setString(7, alm.getDniApd());
+            ps.setString(8, alm.getGradoAlm());
+            ps.setString(9, alm.getSeccionAlm());
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -59,6 +59,8 @@ public class AlumnoDAO implements IntAlumnoDAO {
                 alm.setSgNomAlm(rs.getString("sgNomAlm"));
                 alm.setFecNacAlm(rs.getDate("fecNacAlm"));
                 alm.setDniApd(rs.getString("dniApd"));
+                alm.setGradoAlm(rs.getString("gradoAlm"));
+                alm.setSeccionAlm(rs.getString("seccionAlm"));
                 return true;
             }
             return false;
@@ -78,7 +80,7 @@ public class AlumnoDAO implements IntAlumnoDAO {
     public boolean actualizarAlumno(Alumno alm) {
         PreparedStatement ps = null;
         cn = ConexionBD.conectar();
-        String sql = "update alumno set apPatAlm=?,apMatAlm=?,nomAlm=?,sgNomAlm=?,fecNacAlm=?,dniApd=? where dniAlm=?";
+        String sql = "update alumno set apPatAlm=?,apMatAlm=?,nomAlm=?,sgNomAlm=?,fecNacAlm=?,dniApd=?,gradoAlm=?,seccion=? where dniAlm=?";
         try {
             ps = cn.prepareStatement(sql);
             ps.setString(1, alm.getApPatAlm());
@@ -88,6 +90,8 @@ public class AlumnoDAO implements IntAlumnoDAO {
             ps.setDate(5, (Date) alm.getFecNacAlm());
             ps.setString(6, alm.getDniApd());
             ps.setString(7, alm.getDniAlm());
+            ps.setString(8, alm.getGradoAlm());
+            ps.setString(9, alm.getSeccionAlm());
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -141,6 +145,8 @@ public class AlumnoDAO implements IntAlumnoDAO {
                 alm.setSgNomAlm(rs.getString("sgNomAlm"));
                 alm.setFecNacAlm(rs.getDate("fecNacAlm"));
                 alm.setDniApd(rs.getString("dniApd"));
+                alm.setGradoAlm(rs.getString("gradoAlm"));
+                alm.setSeccionAlm(rs.getString("seccionAlm"));
                 listaAlm.add(alm);
             }
             cn.close();

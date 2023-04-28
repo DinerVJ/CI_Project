@@ -7,13 +7,11 @@ import Vista.VistaAlumno;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import com.toedter.calendar.JDateChooser;
 
 public class ControladorAlumno implements ActionListener {
 
@@ -43,7 +41,7 @@ public class ControladorAlumno implements ActionListener {
     }
 
     public void mostrarEncabezados(JTable tbl){
-        String[] encabezado = {"DNI","APELL. PATERNO","APELL. MATERNO","NOMBRE","SEG. NOMBRE","FEC. NAC.","DNI APODERADO"};
+        String[] encabezado = {"DNI","APELL. PATERNO","APELL. MATERNO","NOMBRE","SEG. NOMBRE","FEC. NAC.","DNI APODERADO","GRADO","SECCION"};
         DefaultTableModel dtm = new DefaultTableModel(null,encabezado);
         tbl.setModel(dtm);
     }
@@ -59,6 +57,8 @@ public class ControladorAlumno implements ActionListener {
             alm.setSgNomAlm(vra.jtxtSgNomAlm.getText());
             alm.setFecNacAlm(vra.jdtcFecNacAlm.getDate());
             alm.setDniApd(vra.jtxtDniApd.getText());
+            alm.setGradoAlm(vra.jtxtDniApd.getText());
+            alm.setSeccionAlm(vra.jtxtDniApd.getText());
             if (dao.crearAlumno(alm)) {
                 JOptionPane.showMessageDialog(null, "ALUMNO REGISTRADO EXITOSAMENTE!");
                 limpiar();

@@ -25,25 +25,25 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
 
         jPanel8 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
         jtxtDniAlm = new javax.swing.JTextField();
         jtxtApPatAlm = new javax.swing.JTextField();
         jtxtApMatAlm = new javax.swing.JTextField();
         jPanel12 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
         jlbNomAlm = new javax.swing.JLabel();
         jlblsgNomAlm = new javax.swing.JLabel();
         jlblfecNacAlm = new javax.swing.JLabel();
-        jlbldniApd = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
         jtxtNomAlm = new javax.swing.JTextField();
         jtxtSgNomAlm = new javax.swing.JTextField();
-        jtxtFecNacAlm = new javax.swing.JTextField();
         jdtcFecNacAlm = new com.toedter.calendar.JDateChooser();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jlbldniApd = new javax.swing.JLabel();
+        jtxtGradoAlm = new javax.swing.JTextField();
+        jtxtSeccionAlm = new javax.swing.JTextField();
         jtxtDniApd = new javax.swing.JTextField();
         jPanel13 = new javax.swing.JPanel();
         jbtnRegAlm = new javax.swing.JButton();
@@ -61,64 +61,59 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
 
         setPreferredSize(new java.awt.Dimension(500, 500));
 
-        jPanel8.setLayout(new java.awt.GridLayout(3, 1));
+        jPanel8.setLayout(new java.awt.GridLayout(4, 1));
 
-        jPanel11.setLayout(new java.awt.GridLayout(2, 1));
-
-        jPanel1.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel11.setLayout(new java.awt.GridLayout(2, 3));
 
         jLabel1.setText("DNI:");
-        jPanel1.add(jLabel1);
+        jPanel11.add(jLabel1);
 
         jLabel2.setText("APELLIDO PATERNO:");
-        jPanel1.add(jLabel2);
+        jPanel11.add(jLabel2);
 
         jLabel3.setText("APELLIDO MATERNO:");
-        jPanel1.add(jLabel3);
-
-        jPanel11.add(jPanel1);
-
-        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel11.add(jLabel3);
 
         jtxtDniAlm.setOpaque(true);
-        jPanel2.add(jtxtDniAlm);
-        jPanel2.add(jtxtApPatAlm);
-        jPanel2.add(jtxtApMatAlm);
-
-        jPanel11.add(jPanel2);
+        jPanel11.add(jtxtDniAlm);
+        jPanel11.add(jtxtApPatAlm);
+        jPanel11.add(jtxtApMatAlm);
 
         jPanel8.add(jPanel11);
 
-        jPanel12.setLayout(new java.awt.GridLayout(2, 1));
-
-        jPanel3.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel12.setLayout(new java.awt.GridLayout(2, 3));
 
         jlbNomAlm.setText("NOMBRE:");
-        jPanel3.add(jlbNomAlm);
+        jPanel12.add(jlbNomAlm);
 
         jlblsgNomAlm.setText("SEGUNDO NOMBRE:");
-        jPanel3.add(jlblsgNomAlm);
+        jPanel12.add(jlblsgNomAlm);
 
         jlblfecNacAlm.setText("FECHA DE NACIMIENTO:");
-        jPanel3.add(jlblfecNacAlm);
-
-        jlbldniApd.setText("DNI DE APODERADO:");
-        jPanel3.add(jlbldniApd);
-
-        jPanel12.add(jPanel3);
-
-        jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
-        jPanel4.add(jtxtNomAlm);
-        jPanel4.add(jtxtSgNomAlm);
-        jPanel4.add(jtxtFecNacAlm);
+        jPanel12.add(jlblfecNacAlm);
+        jPanel12.add(jtxtNomAlm);
+        jPanel12.add(jtxtSgNomAlm);
 
         jdtcFecNacAlm.setDateFormatString("yyyy-MM-dd");
-        jPanel4.add(jdtcFecNacAlm);
-        jPanel4.add(jtxtDniApd);
-
-        jPanel12.add(jPanel4);
+        jPanel12.add(jdtcFecNacAlm);
 
         jPanel8.add(jPanel12);
+
+        jPanel7.setLayout(new java.awt.GridLayout(2, 3));
+
+        jLabel4.setText("GRADO:");
+        jPanel7.add(jLabel4);
+
+        jLabel5.setText("SECCIÓN:");
+        jPanel7.add(jLabel5);
+
+        jlbldniApd.setText("DNI DE APODERADO:");
+        jPanel7.add(jlbldniApd);
+        jPanel7.add(jtxtGradoAlm);
+        jPanel7.add(jtxtSeccionAlm);
+        jPanel7.add(jtxtDniApd);
+
+        jPanel8.add(jPanel7);
 
         jPanel13.setBackground(new java.awt.Color(0, 0, 153));
 
@@ -176,16 +171,15 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
@@ -205,8 +199,9 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
     public javax.swing.JTextField jtxtBusAlm;
     public javax.swing.JTextField jtxtDniAlm;
     public javax.swing.JTextField jtxtDniApd;
-    public javax.swing.JTextField jtxtFecNacAlm;
+    public javax.swing.JTextField jtxtGradoAlm;
     public javax.swing.JTextField jtxtNomAlm;
+    public javax.swing.JTextField jtxtSeccionAlm;
     public javax.swing.JTextField jtxtSgNomAlm;
     // End of variables declaration//GEN-END:variables
 }
