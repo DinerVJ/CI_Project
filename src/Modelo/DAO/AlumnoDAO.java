@@ -16,7 +16,7 @@ public class AlumnoDAO implements IntAlumnoDAO {
     public boolean crearAlumno(Alumno alm) {
         PreparedStatement ps = null;
         cn = ConexionBD.conectar();
-        String sql = "insert into alumno(dniAlm,apPatAlm,apMatAlm,nomAlm,sgNomAlm,fecNacAlm,dniApd,gradoAlm,seccionAlm)values(?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO alumno(dniAlm,apPatAlm,apMatAlm,nomAlm,sgNomAlm,fecNacAlm,dniApd,gradoAlm,seccionAlm)VALUES(?,?,?,?,?,?,?,?,?)";
         try {
             ps = cn.prepareStatement(sql);
             ps.setString(1, alm.getDniAlm());
@@ -29,9 +29,11 @@ public class AlumnoDAO implements IntAlumnoDAO {
             ps.setString(8, alm.getGradoAlm());
             ps.setString(9, alm.getSeccionAlm());
             ps.executeUpdate();
+            cn.close();
+            ps.close();
             return true;
         } catch (SQLException e) {
-            System.err.println(e);
+            System.err.println("ERROR al guardar." + e.getMessage());
             return false;
         } finally {
             try {
@@ -47,7 +49,7 @@ public class AlumnoDAO implements IntAlumnoDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
         cn = ConexionBD.conectar();
-        String sql = "select * from alumno where dniAlm=?";
+        String sql = "SELECT * FROM alumno WHERE dniAlm=?";
         try {
             ps = cn.prepareStatement(sql);
             ps.setString(1, alm.getDniAlm());
@@ -80,19 +82,20 @@ public class AlumnoDAO implements IntAlumnoDAO {
     public boolean actualizarAlumno(Alumno alm) {
         PreparedStatement ps = null;
         cn = ConexionBD.conectar();
-        String sql = "update alumno set apPatAlm=?,apMatAlm=?,nomAlm=?,sgNomAlm=?,fecNacAlm=?,dniApd=?,gradoAlm=?,seccion=? where dniAlm=?";
+        String sql = "UPDATE alumno SET apPatAlm=?,apMatAlm=?,nomAlm=?,sgNomAlm=?,fecNacAlm=?,dniApd=?,gradoAlm=?,seccionAlm=? WHERE dniAlm=?";
         try {
             ps = cn.prepareStatement(sql);
             ps.setString(1, alm.getApPatAlm());
             ps.setString(2, alm.getApMatAlm());
             ps.setString(3, alm.getNomAlm());
             ps.setString(4, alm.getSgNomAlm());
-            ps.setDate(5, (Date) alm.getFecNacAlm());
+            ps.setDate(5, new java.sql.Date(alm.getFecNacAlm().getTime()));
             ps.setString(6, alm.getDniApd());
-            ps.setString(7, alm.getDniAlm());
-            ps.setString(8, alm.getGradoAlm());
-            ps.setString(9, alm.getSeccionAlm());
+            ps.setString(7, alm.getGradoAlm());
+            ps.setString(8, alm.getSeccionAlm());
+            ps.setString(9, alm.getDniAlm());
             ps.execute();
+            ps.close();
             return true;
         } catch (SQLException e) {
             System.err.println(e);
@@ -110,7 +113,7 @@ public class AlumnoDAO implements IntAlumnoDAO {
     public boolean eliminarAlumno(Alumno alm) {
         PreparedStatement ps = null;
         cn = ConexionBD.conectar();
-        String sql = "delete from alumno where dniAlm=?";
+        String sql = "DELETE FROM alumno WHERE dniAlm=?";
         try {
             ps = cn.prepareStatement(sql);
             ps.setString(1, alm.getDniAlm());
@@ -133,7 +136,7 @@ public class AlumnoDAO implements IntAlumnoDAO {
         List<Alumno> listaAlm = new ArrayList<Alumno>();
         try {
             cn = ConexionBD.conectar();
-            String sql = "select * from alumno";
+            String sql = "SELECT * FROM alumno";
             PreparedStatement ps = cn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

@@ -40,12 +40,12 @@ public class ControladorAlumno implements ActionListener {
         formatoFecha();
     }
 
-    public void mostrarEncabezados(JTable tbl){
-        String[] encabezado = {"DNI","APELL. PATERNO","APELL. MATERNO","NOMBRE","SEG. NOMBRE","FEC. NAC.","DNI APODERADO","GRADO","SECCION"};
-        DefaultTableModel dtm = new DefaultTableModel(null,encabezado);
+    public void mostrarEncabezados(JTable tbl) {
+        String[] encabezado = {"DNI", "APELL. PATERNO", "APELL. MATERNO", "NOMBRE", "SEG. NOMBRE", "FEC. NAC.", "DNI APODERADO", "GRADO", "SECCION"};
+        DefaultTableModel dtm = new DefaultTableModel(null, encabezado);
         tbl.setModel(dtm);
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -57,8 +57,8 @@ public class ControladorAlumno implements ActionListener {
             alm.setSgNomAlm(vra.jtxtSgNomAlm.getText());
             alm.setFecNacAlm(vra.jdtcFecNacAlm.getDate());
             alm.setDniApd(vra.jtxtDniApd.getText());
-            alm.setGradoAlm(vra.jtxtDniApd.getText());
-            alm.setSeccionAlm(vra.jtxtDniApd.getText());
+            alm.setGradoAlm(vra.jtxtGradoAlm.getText());
+            alm.setSeccionAlm(vra.jtxtSeccionAlm.getText());
             if (dao.crearAlumno(alm)) {
                 JOptionPane.showMessageDialog(null, "ALUMNO REGISTRADO EXITOSAMENTE!");
                 limpiar();
@@ -78,6 +78,8 @@ public class ControladorAlumno implements ActionListener {
                 vra.jtxtSgNomAlm.setText(alm.getSgNomAlm());
                 vra.jdtcFecNacAlm.setDate(alm.getFecNacAlm());
                 vra.jtxtDniApd.setText(alm.getDniApd());
+                vra.jtxtGradoAlm.setText(alm.getGradoAlm());
+                vra.jtxtSeccionAlm.setText(alm.getSeccionAlm());
                 vra.jtxtBusAlm.setText(null);
             } else {
                 JOptionPane.showMessageDialog(null, "NO SE ENCONTRO REGISTRO!");
@@ -85,23 +87,23 @@ public class ControladorAlumno implements ActionListener {
         }
 
         if (e.getSource() == vra.jbtnActAlm) {
-            //alm.setDniAlm(vra.jtxtDniAlm.getText());
+            limpiar();
+            alm.setApPatAlm(vra.jtxtApPatAlm.getText());
+            alm.setApMatAlm(vra.jtxtApMatAlm.getText());
+            alm.setNomAlm(vra.jtxtNomAlm.getText());
+            alm.setSgNomAlm(vra.jtxtSgNomAlm.getText());
+            alm.setFecNacAlm(vra.jdtcFecNacAlm.getDate());
+            alm.setDniApd(vra.jtxtDniApd.getText());
+            alm.setGradoAlm(vra.jtxtGradoAlm.getText());
+            alm.setSeccionAlm(vra.jtxtSeccionAlm.getText());
+            alm.setDniAlm(vra.jtxtDniAlm.getText());
             if (dao.actualizarAlumno(alm)) {
-                alm.setDniAlm(vra.jtxtDniAlm.getText());
-                alm.setApPatAlm(vra.jtxtApPatAlm.getText());
-                alm.setApMatAlm(vra.jtxtApMatAlm.getText());
-                alm.setNomAlm(vra.jtxtNomAlm.getText());
-                alm.setSgNomAlm(vra.jtxtSgNomAlm.getText());
-                alm.setFecNacAlm(vra.jdtcFecNacAlm.getDate());
-                alm.setDniApd(vra.jtxtDniApd.getText());
-                if (dao.actualizarAlumno(alm)) {
-                    JOptionPane.showMessageDialog(null, "EXITO! Registro actualizado.");
-                    limpiar();
-                } else {
-                    JOptionPane.showMessageDialog(null, "ERROR! No se pudo actualizar.");
-                }
+                JOptionPane.showMessageDialog(null, "EXITO! Registro actualizado.");
+                limpiar();
+            } else {
+                JOptionPane.showMessageDialog(null, "ERROR! No se pudo actualizar.");
             }
-            dao.listarAlumno();
+            listarAlm();
         }
 
         if (e.getSource() == vra.jbtnElmAlm) {
@@ -130,12 +132,14 @@ public class ControladorAlumno implements ActionListener {
         vra.jtxtSgNomAlm.setText(null);
         vra.jdtcFecNacAlm.setDate(null);
         vra.jtxtDniApd.setText(null);
+        vra.jtxtGradoAlm.setText(null);
+        vra.jtxtSeccionAlm.setText(null);
     }
-    
-    public void listarAlm(){
+
+    public void listarAlm() {
         List<Alumno> listarAlm = dao.listarAlumno();
         dtblm = (DefaultTableModel) vra.jtblAlm.getModel();
-        Object[] ob = new Object[7];
+        Object[] ob = new Object[9];
         for (int i = 0; i < listarAlm.size(); i++) {
             ob[0] = listarAlm.get(i).getDniAlm();
             ob[1] = listarAlm.get(i).getApPatAlm();
@@ -144,16 +148,18 @@ public class ControladorAlumno implements ActionListener {
             ob[4] = listarAlm.get(i).getSgNomAlm();
             ob[5] = listarAlm.get(i).getFecNacAlm();
             ob[6] = listarAlm.get(i).getDniApd();
+            ob[7] = listarAlm.get(i).getGradoAlm();
+            ob[8] = listarAlm.get(i).getSeccionAlm();
             dtblm.addRow(ob);
         }
         vra.jtblAlm.setModel(dtblm);
     }
-    
-    public void formatoFecha(){
+
+    public void formatoFecha() {
         vra.jdtcFecNacAlm.setDateFormatString("yyyy-MM-dd");
     }
-    
-    public void guadarFecha(){
+
+    public void guadarFecha() {
         Date fecSelect = vra.jdtcFecNacAlm.getDate();
         alm.setFecNacAlm(fecSelect);
     }

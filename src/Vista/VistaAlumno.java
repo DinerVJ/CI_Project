@@ -115,8 +115,6 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
 
         jPanel8.add(jPanel7);
 
-        jPanel13.setBackground(new java.awt.Color(0, 0, 153));
-
         jbtnRegAlm.setText("REGISTRAR");
         jPanel13.add(jbtnRegAlm);
 
