@@ -47,7 +47,7 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
         jPanel11 = new javax.swing.JPanel();
         jtxtNomApd = new javax.swing.JTextField();
         jtxtSgNomApd = new javax.swing.JTextField();
-        jtxtFecNacApd = new javax.swing.JTextField();
+        jdtcFecNacApd = new com.toedter.calendar.JDateChooser();
         jPanel6 = new javax.swing.JPanel();
         jbtnRegApd = new javax.swing.JButton();
         jbtnActApd = new javax.swing.JButton();
@@ -108,7 +108,7 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
         jPanel11.setLayout(new javax.swing.BoxLayout(jPanel11, javax.swing.BoxLayout.LINE_AXIS));
         jPanel11.add(jtxtNomApd);
         jPanel11.add(jtxtSgNomApd);
-        jPanel11.add(jtxtFecNacApd);
+        jPanel11.add(jdtcFecNacApd);
 
         jPanel5.add(jPanel11);
 
@@ -195,12 +195,12 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
     public javax.swing.JButton jbtnElmApd;
     public javax.swing.JButton jbtnExpApd;
     public javax.swing.JButton jbtnRegApd;
+    public com.toedter.calendar.JDateChooser jdtcFecNacApd;
     public javax.swing.JTable jtblApd;
     public javax.swing.JTextField jtxtApMatApd;
     public javax.swing.JTextField jtxtApPatApd;
     public javax.swing.JTextField jtxtBusApd;
     public javax.swing.JTextField jtxtDniApd;
-    public javax.swing.JTextField jtxtFecNacApd;
     public javax.swing.JTextField jtxtNomApd;
     public javax.swing.JTextField jtxtSgNomApd;
     // End of variables declaration//GEN-END:variables

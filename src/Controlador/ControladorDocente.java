@@ -8,6 +8,7 @@ import Vista.VistaDocente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -37,7 +38,7 @@ public class ControladorDocente implements ActionListener{
         vd.setTitle("DATOS DEL DOCENTE");
         mostrarEncabezados(vd.jtblDct);
         listarDct();
-        
+        formatoFecha();
     }
     
     public void mostrarEncabezados(JTable tbl){
@@ -49,12 +50,13 @@ public class ControladorDocente implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vd.jbtnRegDct) {
+            limpiarListaDct(vd.jtblDct);
             dct.setDniDct(vd.jtxtDniDct.getText());
             dct.setApPatDct(vd.jtxtApPatDct.getText());
             dct.setApMatDct(vd.jtxtApMatDct.getText());
             dct.setNomDct(vd.jtxtNomDct.getText());
             dct.setSgNomDct(vd.jtxtSgNomDct.getText());
-            dct.setFecNacDct(vd.jtxtFecNacDct.getText());
+            dct.setFecNacDct(vd.jdtcFecNacDct.getDate());
             if (dao.crearDocente(dct)) {
                 JOptionPane.showMessageDialog(null, "EXITO! Docente registrado.");
                 limpiar();
@@ -72,7 +74,7 @@ public class ControladorDocente implements ActionListener{
                 vd.jtxtApMatDct.setText(dct.getApMatDct());
                 vd.jtxtNomDct.setText(dct.getNomDct());
                 vd.jtxtSgNomDct.setText(dct.getSgNomDct());
-                vd.jtxtFecNacDct.setText(dct.getFecNacDct());
+                vd.jdtcFecNacDct.setDate(dct.getFecNacDct());
                 vd.jtxtBusDct.setText(null);
             } else {
                 JOptionPane.showMessageDialog(null, "NO SE ENCONTRO REGISTRO!");
@@ -81,13 +83,14 @@ public class ControladorDocente implements ActionListener{
 
         if (e.getSource() == vd.jbtnActDct) {
             //alm.setDniAlm(vra.jtxtDniAlm.getText());
+            limpiarListaDct(vd.jtblDct);
             if (dao.actualizarDocente(dct)) {
                 dct.setDniDct(vd.jtxtDniDct.getText());
                 dct.setApPatDct(vd.jtxtApPatDct.getText());
                 dct.setApMatDct(vd.jtxtApMatDct.getText());
                 dct.setNomDct(vd.jtxtNomDct.getText());
                 dct.setSgNomDct(vd.jtxtSgNomDct.getText());
-                dct.setFecNacDct(vd.jtxtFecNacDct.getText());
+                dct.setFecNacDct(vd.jdtcFecNacDct.getDate());
                 if (dao.actualizarDocente(dct)) {
                     JOptionPane.showMessageDialog(null, "EXITO! Registro actualizado.");
                     limpiar();
@@ -99,6 +102,7 @@ public class ControladorDocente implements ActionListener{
         }
 
         if (e.getSource() == vd.jbtnElmDct) {
+            limpiarListaDct(vd.jtblDct);
             dct.setDniDct(vd.jtxtDniDct.getText());
             if (dao.eliminarDocente(dct)) {
                 JOptionPane.showMessageDialog(null, "¡EXITOSO! Registro eliminado.");
@@ -117,14 +121,6 @@ public class ControladorDocente implements ActionListener{
         }
     }
     
-    public void limpiar(){
-        vd.jtxtDniDct.setText(null);
-        vd.jtxtApPatDct.setText(null);
-        vd.jtxtApMatDct.setText(null);
-        vd.jtxtNomDct.setText(null);
-        vd.jtxtSgNomDct.setText(null);
-        vd.jtxtFecNacDct.setText(null);
-    }
     
     public void listarDct(){
         List<Docente> listarDct = dao.listarDocente();
@@ -141,5 +137,26 @@ public class ControladorDocente implements ActionListener{
         }
         vd.jtblDct.setModel(dtm);
     }
-    
+    //Metodo para LIMPIAR registros de la tabla ALUMNOS
+    public void limpiarListaDct(JTable jtblDct){
+        if (vd.jtblDct != null) {
+            dtm.setRowCount(0);
+        }
+    }
+    public void formatoFecha() {
+        vd.jdtcFecNacDct.setDateFormatString("yyyy-MM-dd");
+    }
+
+    public void guadarFecha() {
+        Date fecSelect = vd.jdtcFecNacDct.getDate();
+        dct.setFecNacDct(fecSelect);
+    }
+    public void limpiar(){
+        vd.jtxtDniDct.setText(null);
+        vd.jtxtApPatDct.setText(null);
+        vd.jtxtApMatDct.setText(null);
+        vd.jtxtNomDct.setText(null);
+        vd.jtxtSgNomDct.setText(null);
+        vd.jdtcFecNacDct.setDate(null);
+    }
 }

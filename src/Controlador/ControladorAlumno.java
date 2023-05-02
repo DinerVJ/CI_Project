@@ -14,13 +14,13 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class ControladorAlumno implements ActionListener {
-
+    //ATRIBUTOS
     private Alumno alm;
     private AlumnoDAO dao;
     private VistaAlumno vra;
     private OtrosMetodos om;
     DefaultTableModel dtblm = new DefaultTableModel();
-
+    //Metodo CONSTRUCTO con PARAMETROS
     public ControladorAlumno(Alumno alm, AlumnoDAO dao, VistaAlumno vra, OtrosMetodos om) {
         this.alm = alm;
         this.dao = dao;
@@ -32,14 +32,14 @@ public class ControladorAlumno implements ActionListener {
         this.vra.jbtnBusAlm.addActionListener(this);
         this.vra.jbtnExpAlm.addActionListener(this);
     }
-
+    // Metodo de INICIO
     public void iniciar() {
-        vra.setTitle("DATOS DE ALUMNO");
+        vra.setTitle("DATOS DEL ALUMNO");
         mostrarEncabezados(vra.jtblAlm);
         listarAlm();
         formatoFecha();
     }
-
+    //Metodo para determinar ENCABEZADOS de la tabla
     public void mostrarEncabezados(JTable tbl) {
         String[] encabezado = {"DNI", "APELL. PATERNO", "APELL. MATERNO", "NOMBRE", "SEG. NOMBRE", "FEC. NAC.", "DNI APODERADO", "GRADO", "SECCION"};
         DefaultTableModel dtm = new DefaultTableModel(null, encabezado);
@@ -48,8 +48,9 @@ public class ControladorAlumno implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        //Condicional para REGISTRAR
         if (e.getSource() == vra.jbtnRegAlm) {
+            limpiarListaAlm(vra.jtblAlm);
             alm.setDniAlm(vra.jtxtDniAlm.getText());
             alm.setApPatAlm(vra.jtxtApPatAlm.getText());
             alm.setApMatAlm(vra.jtxtApMatAlm.getText());
@@ -67,7 +68,7 @@ public class ControladorAlumno implements ActionListener {
             }
             listarAlm();
         }
-
+        //Condicional para BUSCAR
         if (e.getSource() == vra.jbtnBusAlm) {
             alm.setDniAlm(vra.jtxtBusAlm.getText());
             if (dao.leerAlumno(alm)) {
@@ -85,9 +86,9 @@ public class ControladorAlumno implements ActionListener {
                 JOptionPane.showMessageDialog(null, "NO SE ENCONTRO REGISTRO!");
             }
         }
-
+        //Condicional para ACTUALIZAR
         if (e.getSource() == vra.jbtnActAlm) {
-            limpiar();
+            limpiarListaAlm(vra.jtblAlm);
             alm.setApPatAlm(vra.jtxtApPatAlm.getText());
             alm.setApMatAlm(vra.jtxtApMatAlm.getText());
             alm.setNomAlm(vra.jtxtNomAlm.getText());
@@ -105,8 +106,9 @@ public class ControladorAlumno implements ActionListener {
             }
             listarAlm();
         }
-
+        //Condicional para ELIMINAR
         if (e.getSource() == vra.jbtnElmAlm) {
+            limpiarListaAlm(vra.jtblAlm);
             alm.setDniApd(vra.jtxtDniApd.getText());
             if (dao.eliminarAlumno(alm)) {
                 JOptionPane.showMessageDialog(null, "¡EXITOSO! Registro eliminado.");
@@ -114,7 +116,9 @@ public class ControladorAlumno implements ActionListener {
             } else {
                 JOptionPane.showMessageDialog(null, "¡ERROR! No se eliminó registro");
             }
+            listarAlm();
         }
+        //Condicional para EXPORTAR datos a EXCEL
         if (e.getSource() == vra.jbtnExpAlm) {
             try {
                 om.exportarDatosDocente(vra.jtblAlm);
@@ -123,19 +127,7 @@ public class ControladorAlumno implements ActionListener {
             }
         }
     }
-
-    public void limpiar() {
-        vra.jtxtDniAlm.setText(null);
-        vra.jtxtApPatAlm.setText(null);
-        vra.jtxtApMatAlm.setText(null);
-        vra.jtxtNomAlm.setText(null);
-        vra.jtxtSgNomAlm.setText(null);
-        vra.jdtcFecNacAlm.setDate(null);
-        vra.jtxtDniApd.setText(null);
-        vra.jtxtGradoAlm.setText(null);
-        vra.jtxtSeccionAlm.setText(null);
-    }
-
+    //Metodo para LISTAR
     public void listarAlm() {
         List<Alumno> listarAlm = dao.listarAlumno();
         dtblm = (DefaultTableModel) vra.jtblAlm.getModel();
@@ -154,13 +146,31 @@ public class ControladorAlumno implements ActionListener {
         }
         vra.jtblAlm.setModel(dtblm);
     }
-
+    //Metodo para LIMPIAR registros de la tabla ALUMNOS
+    public void limpiarListaAlm(JTable jtblAlm){
+        if (vra.jtblAlm != null) {
+            dtblm.setRowCount(0);
+        }
+    }
+    //Metodo para DAR FORMATO a la fecha
     public void formatoFecha() {
         vra.jdtcFecNacAlm.setDateFormatString("yyyy-MM-dd");
     }
-
+    //Metodo para GUARDAR fecha
     public void guadarFecha() {
         Date fecSelect = vra.jdtcFecNacAlm.getDate();
         alm.setFecNacAlm(fecSelect);
+    }
+    //Metodo para LIMPIAR campos de texto
+    public void limpiar() {
+        vra.jtxtDniAlm.setText(null);
+        vra.jtxtApPatAlm.setText(null);
+        vra.jtxtApMatAlm.setText(null);
+        vra.jtxtNomAlm.setText(null);
+        vra.jtxtSgNomAlm.setText(null);
+        vra.jdtcFecNacAlm.setDate(null);
+        vra.jtxtDniApd.setText(null);
+        vra.jtxtGradoAlm.setText(null);
+        vra.jtxtSeccionAlm.setText(null);
     }
 }

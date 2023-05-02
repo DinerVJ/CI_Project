@@ -1,5 +1,6 @@
-
 package Modelo.DTO;
+
+import java.util.Date;
 
 public class Apoderado {
     
@@ -8,12 +9,12 @@ public class Apoderado {
     private String apMatApd;
     private String nomApd;
     private String sgNomApd;
-    private String fecNacApd;
+    private Date fecNacApd;
 
     public Apoderado() {
     }
 
-    public Apoderado(String dniApd, String apPatApd, String apMatApd, String nomApd, String sgNomApd, String fecNacApd) {
+    public Apoderado(String dniApd, String apPatApd, String apMatApd, String nomApd, String sgNomApd, Date fecNacApd) {
         this.dniApd = dniApd;
         this.apPatApd = apPatApd;
         this.apMatApd = apMatApd;
@@ -62,11 +63,11 @@ public class Apoderado {
         this.sgNomApd = sgNomApd;
     }
 
-    public String getFecNacApd() {
+    public Date getFecNacApd() {
         return fecNacApd;
     }
 
-    public void setFecNacApd(String fecNacApd) {
+    public void setFecNacApd(Date fecNacApd) {
         this.fecNacApd = fecNacApd;
     }
     

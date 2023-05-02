@@ -46,7 +46,7 @@ public class VistaDocente extends javax.swing.JInternalFrame {
         jPanel11 = new javax.swing.JPanel();
         jtxtNomDct = new javax.swing.JTextField();
         jtxtSgNomDct = new javax.swing.JTextField();
-        jtxtFecNacDct = new javax.swing.JTextField();
+        jdtcFecNacDct = new com.toedter.calendar.JDateChooser();
         jPanel6 = new javax.swing.JPanel();
         jbtnRegDct = new javax.swing.JButton();
         jbtnActDct = new javax.swing.JButton();
@@ -107,7 +107,7 @@ public class VistaDocente extends javax.swing.JInternalFrame {
         jPanel11.setLayout(new javax.swing.BoxLayout(jPanel11, javax.swing.BoxLayout.LINE_AXIS));
         jPanel11.add(jtxtNomDct);
         jPanel11.add(jtxtSgNomDct);
-        jPanel11.add(jtxtFecNacDct);
+        jPanel11.add(jdtcFecNacDct);
 
         jPanel5.add(jPanel11);
 
@@ -194,12 +194,12 @@ public class VistaDocente extends javax.swing.JInternalFrame {
     public javax.swing.JButton jbtnElmDct;
     public javax.swing.JButton jbtnExpDct;
     public javax.swing.JButton jbtnRegDct;
+    public com.toedter.calendar.JDateChooser jdtcFecNacDct;
     public javax.swing.JTable jtblDct;
     public javax.swing.JTextField jtxtApMatDct;
     public javax.swing.JTextField jtxtApPatDct;
     public javax.swing.JTextField jtxtBusDct;
     public javax.swing.JTextField jtxtDniDct;
-    public javax.swing.JTextField jtxtFecNacDct;
     public javax.swing.JTextField jtxtNomDct;
     public javax.swing.JTextField jtxtSgNomDct;
     // End of variables declaration//GEN-END:variables

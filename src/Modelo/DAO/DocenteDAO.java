@@ -13,7 +13,7 @@ public class DocenteDAO implements IntDocenteDAO{
     public boolean crearDocente(Docente dct) {
         PreparedStatement ps = null;
         cn = ConexionBD.conectar();
-        String sql = "insert into docente(dniDct,apPatDct,apMatDct,nomDct,sgNomDct,fecNacDct)values(?,?,?,?,?,?)";
+        String sql = "INSER INTO docente(dniDct,apPatDct,apMatDct,nomDct,sgNomDct,fecNacDct)VALUES(?,?,?,?,?,?)";
         try {
             ps = cn.prepareStatement(sql);
             ps.setString(1, dct.getDniDct());
@@ -21,7 +21,7 @@ public class DocenteDAO implements IntDocenteDAO{
             ps.setString(3, dct.getApMatDct());
             ps.setString(4, dct.getNomDct());
             ps.setString(5, dct.getSgNomDct());
-            ps.setString(6, dct.getFecNacDct());
+            ps.setDate(6, new java.sql.Date(dct.getFecNacDct().getTime()));
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -41,7 +41,7 @@ public class DocenteDAO implements IntDocenteDAO{
         PreparedStatement ps = null;
         ResultSet rs = null;
         cn = ConexionBD.conectar();
-        String sql = "select * from docente where dniADct=?";
+        String sql = "SELECT * FROM docente WHERE dniDct=?";
         try {
             ps = cn.prepareStatement(sql);
             ps.setString(1, dct.getDniDct());
@@ -51,7 +51,7 @@ public class DocenteDAO implements IntDocenteDAO{
                 dct.setApMatDct(rs.getString("apMatDct"));
                 dct.setNomDct(rs.getString("nomDct"));
                 dct.setSgNomDct(rs.getString("sgNomDct"));
-                dct.setFecNacDct(rs.getString("fecNacDct"));
+                dct.setFecNacDct(rs.getDate("fecNacDct"));
                 return true;
             }
             return false;
@@ -71,14 +71,14 @@ public class DocenteDAO implements IntDocenteDAO{
     public boolean actualizarDocente(Docente dct) {
         PreparedStatement ps = null;
         cn = ConexionBD.conectar();
-        String sql = "update alumno set apPatDct=?,apMatDct=?,nomDct=?,sgNomDct=?,fecNacDct=? where dniDct=?";
+        String sql = "UPDATE docente SET apPatDct=?,apMatDct=?,nomDct=?,sgNomDct=?,fecNacDct=? WHERE dniDct=?";
         try {
             ps = cn.prepareStatement(sql);
             ps.setString(1, dct.getApPatDct());
             ps.setString(2,dct.getApMatDct());
             ps.setString(3, dct.getNomDct());
             ps.setString(4, dct.getSgNomDct());
-            ps.setString(5, dct.getFecNacDct());
+            ps.setDate(5, new java.sql.Date(dct.getFecNacDct().getTime()));
             ps.setString(6, dct.getDniDct());
             ps.execute();
             return true;
@@ -98,7 +98,7 @@ public class DocenteDAO implements IntDocenteDAO{
     public boolean eliminarDocente(Docente dct) {
         PreparedStatement ps = null;
         cn = ConexionBD.conectar();
-        String sql = "delete from docente where dniDct=?";
+        String sql = "DELETE FROM docente WHERE dniDct=?";
         try {
             ps = cn.prepareStatement(sql);
             ps.setString(1, dct.getDniDct());
@@ -121,7 +121,7 @@ public class DocenteDAO implements IntDocenteDAO{
         List<Docente> listaDct = new ArrayList<Docente>();
         try {
             cn = ConexionBD.conectar();
-            String sql = "select * from docente";
+            String sql = "SELECT * FROM docente";
             PreparedStatement ps = cn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -131,7 +131,7 @@ public class DocenteDAO implements IntDocenteDAO{
                 alm.setApMatDct(rs.getString("apMatDct"));
                 alm.setNomDct(rs.getString("nomDct"));
                 alm.setSgNomDct(rs.getString("sgNomDct"));
-                alm.setFecNacDct(rs.getString("fecNacDct"));
+                alm.setFecNacDct(rs.getDate("fecNacDct"));
                 listaDct.add(alm);
             }
             cn.close();
