@@ -13,7 +13,6 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
     /**
      * Creates new form VistaRegistrarApoderado
      */
-    VistaPrincipal vp = new VistaPrincipal();
     public VistaApoderado() {
         initComponents();
         setSize(730,600);
@@ -31,20 +30,16 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPanel9 = new javax.swing.JPanel();
         jtxtDniApd = new javax.swing.JTextField();
         jtxtApPatApd = new javax.swing.JTextField();
         jtxtApMatApd = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jPanel11 = new javax.swing.JPanel();
         jtxtNomApd = new javax.swing.JTextField();
         jtxtSgNomApd = new javax.swing.JTextField();
         jdtcFecNacApd = new com.toedter.calendar.JDateChooser();
@@ -68,49 +63,33 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
 
         jPanel4.setLayout(new java.awt.GridLayout(2, 1));
 
-        jPanel8.setLayout(new java.awt.GridLayout(1, 0));
-
         jLabel1.setText("DNI:");
-        jPanel8.add(jLabel1);
+        jPanel4.add(jLabel1);
 
         jLabel2.setText("APELLIDO PATERNO:");
-        jPanel8.add(jLabel2);
+        jPanel4.add(jLabel2);
 
         jLabel3.setText("APELLIDO MATERNO:");
-        jPanel8.add(jLabel3);
-
-        jPanel4.add(jPanel8);
-
-        jPanel9.setLayout(new javax.swing.BoxLayout(jPanel9, javax.swing.BoxLayout.LINE_AXIS));
-        jPanel9.add(jtxtDniApd);
-        jPanel9.add(jtxtApPatApd);
-        jPanel9.add(jtxtApMatApd);
-
-        jPanel4.add(jPanel9);
+        jPanel4.add(jLabel3);
+        jPanel4.add(jtxtDniApd);
+        jPanel4.add(jtxtApPatApd);
+        jPanel4.add(jtxtApMatApd);
 
         jPanel2.add(jPanel4);
 
-        jPanel5.setLayout(new java.awt.GridLayout(2, 1));
-
-        jPanel10.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel5.setLayout(new java.awt.GridLayout(2, 3));
 
         jLabel4.setText("NOMBRE:");
-        jPanel10.add(jLabel4);
+        jPanel5.add(jLabel4);
 
         jLabel5.setText("SEGUNDO NOMBRE:");
-        jPanel10.add(jLabel5);
+        jPanel5.add(jLabel5);
 
         jLabel6.setText("FECHA DE NACIMIENTO:");
-        jPanel10.add(jLabel6);
-
-        jPanel5.add(jPanel10);
-
-        jPanel11.setLayout(new javax.swing.BoxLayout(jPanel11, javax.swing.BoxLayout.LINE_AXIS));
-        jPanel11.add(jtxtNomApd);
-        jPanel11.add(jtxtSgNomApd);
-        jPanel11.add(jdtcFecNacApd);
-
-        jPanel5.add(jPanel11);
+        jPanel5.add(jLabel6);
+        jPanel5.add(jtxtNomApd);
+        jPanel5.add(jtxtSgNomApd);
+        jPanel5.add(jdtcFecNacApd);
 
         jPanel2.add(jPanel5);
 
@@ -177,8 +156,6 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
@@ -187,8 +164,6 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JButton jbtnActApd;
     public javax.swing.JButton jbtnBusApd;

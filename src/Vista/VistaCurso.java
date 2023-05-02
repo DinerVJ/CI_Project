@@ -15,6 +15,7 @@ public class VistaCurso extends javax.swing.JInternalFrame {
      */
     public VistaCurso() {
         initComponents();
+        setSize(730,600);
     }
 
     /**
@@ -30,11 +31,11 @@ public class VistaCurso extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGap(0, 462, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGap(0, 375, Short.MAX_VALUE)
         );
 
         pack();
