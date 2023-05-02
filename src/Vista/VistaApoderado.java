@@ -16,7 +16,7 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
     VistaPrincipal vp = new VistaPrincipal();
     public VistaApoderado() {
         initComponents();
-        setSize(vp.jdskVistaPrin.getWidth(), vp.jdskVistaPrin.getHeight());
+        setSize(730,600);
     }
 
     /**
