@@ -159,7 +159,6 @@ public class AlumnoDAO implements IntAlumnoDAO {
             System.out.println("ERROR al listar: " + e.getMessage());
         }
         return listaAlm;
-
     }
 
 }

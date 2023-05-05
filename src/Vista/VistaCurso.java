@@ -27,21 +27,105 @@ public class VistaCurso extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 462, Short.MAX_VALUE)
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jtxtNomCrs = new javax.swing.JTextField();
+        jbtnCrearCrs = new javax.swing.JButton();
+        jtbnElmCur = new javax.swing.JButton();
+        jbtnActCur = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jtxtBusCrs = new javax.swing.JTextField();
+        jbtnBusCrs = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtblCur = new javax.swing.JTable();
+
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
+        jPanel2.setLayout(new java.awt.GridLayout(2, 0));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 718, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 375, Short.MAX_VALUE)
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
+
+        jPanel2.add(jPanel5);
+
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel6.add(jtxtNomCrs, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 133, -1));
+
+        jbtnCrearCrs.setText("AGREGAR");
+        jPanel6.add(jbtnCrearCrs, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, -1, -1));
+
+        jtbnElmCur.setText("ELIMINAR");
+        jPanel6.add(jtbnElmCur, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, -1, -1));
+
+        jbtnActCur.setText("MODIFICAR");
+        jPanel6.add(jbtnActCur, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, -1, -1));
+
+        jPanel2.add(jPanel6);
+
+        jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
+
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.add(jtxtBusCrs, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 260, -1));
+
+        jbtnBusCrs.setText("BUSCAR CURSO");
+        jPanel3.add(jbtnBusCrs, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
+
+        jPanel1.add(jPanel3, java.awt.BorderLayout.PAGE_END);
+
+        jtblCur.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jtblCur);
+        if (jtblCur.getColumnModel().getColumnCount() > 0) {
+            jtblCur.getColumnModel().getColumn(0).setHeaderValue("Title 1");
+            jtblCur.getColumnModel().getColumn(1).setHeaderValue("Title 2");
+            jtblCur.getColumnModel().getColumn(2).setHeaderValue("Title 3");
+            jtblCur.getColumnModel().getColumn(3).setHeaderValue("Title 4");
+        }
+
+        jPanel4.add(jScrollPane1);
+
+        jPanel1.add(jPanel4, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JButton jbtnActCur;
+    public javax.swing.JButton jbtnBusCrs;
+    public javax.swing.JButton jbtnCrearCrs;
+    public javax.swing.JTable jtblCur;
+    public javax.swing.JButton jtbnElmCur;
+    public javax.swing.JTextField jtxtBusCrs;
+    public javax.swing.JTextField jtxtNomCrs;
     // End of variables declaration//GEN-END:variables
 }

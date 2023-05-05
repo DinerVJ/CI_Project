@@ -38,6 +38,7 @@ public class ControladorAlumno implements ActionListener {
         mostrarEncabezados(vra.jtblAlm);
         listarAlm();
         formatoFecha();
+        opcCombBox();
     }
     //Metodo para determinar ENCABEZADOS de la tabla
     public void mostrarEncabezados(JTable tbl) {
@@ -45,7 +46,7 @@ public class ControladorAlumno implements ActionListener {
         DefaultTableModel dtm = new DefaultTableModel(null, encabezado);
         tbl.setModel(dtm);
     }
-
+    //Metodo de ACCIONES
     @Override
     public void actionPerformed(ActionEvent e) {
         //Condicional para REGISTRAR
@@ -58,8 +59,8 @@ public class ControladorAlumno implements ActionListener {
             alm.setSgNomAlm(vra.jtxtSgNomAlm.getText());
             alm.setFecNacAlm(vra.jdtcFecNacAlm.getDate());
             alm.setDniApd(vra.jtxtDniApd.getText());
-            alm.setGradoAlm(vra.jtxtGradoAlm.getText());
-            alm.setSeccionAlm(vra.jtxtSeccionAlm.getText());
+            alm.setGradoAlm(vra.jcbGradoAlm.getSelectedItem().toString());
+            alm.setSeccionAlm(vra.jcbxSecAlm.getSelectedItem().toString());
             if (dao.crearAlumno(alm)) {
                 JOptionPane.showMessageDialog(null, "ALUMNO REGISTRADO EXITOSAMENTE!");
                 limpiar();
@@ -79,8 +80,8 @@ public class ControladorAlumno implements ActionListener {
                 vra.jtxtSgNomAlm.setText(alm.getSgNomAlm());
                 vra.jdtcFecNacAlm.setDate(alm.getFecNacAlm());
                 vra.jtxtDniApd.setText(alm.getDniApd());
-                vra.jtxtGradoAlm.setText(alm.getGradoAlm());
-                vra.jtxtSeccionAlm.setText(alm.getSeccionAlm());
+                vra.jcbGradoAlm.setSelectedItem(alm.getGradoAlm());
+                vra.jcbxSecAlm.setSelectedItem(alm.getSeccionAlm());
                 vra.jtxtBusAlm.setText(null);
             } else {
                 JOptionPane.showMessageDialog(null, "NO SE ENCONTRO REGISTRO!");
@@ -95,8 +96,8 @@ public class ControladorAlumno implements ActionListener {
             alm.setSgNomAlm(vra.jtxtSgNomAlm.getText());
             alm.setFecNacAlm(vra.jdtcFecNacAlm.getDate());
             alm.setDniApd(vra.jtxtDniApd.getText());
-            alm.setGradoAlm(vra.jtxtGradoAlm.getText());
-            alm.setSeccionAlm(vra.jtxtSeccionAlm.getText());
+            alm.setGradoAlm(vra.jcbGradoAlm.getSelectedItem().toString());
+            alm.setSeccionAlm(vra.jcbxSecAlm.getSelectedItem().toString());
             alm.setDniAlm(vra.jtxtDniAlm.getText());
             if (dao.actualizarAlumno(alm)) {
                 JOptionPane.showMessageDialog(null, "EXITO! Registro actualizado.");
@@ -152,16 +153,16 @@ public class ControladorAlumno implements ActionListener {
             dtblm.setRowCount(0);
         }
     }
-    //Metodo para DAR FORMATO a la fecha
+    //Metodo para DAR FORMATO a la FECHA
     public void formatoFecha() {
         vra.jdtcFecNacAlm.setDateFormatString("yyyy-MM-dd");
     }
-    //Metodo para GUARDAR fecha
+    //Metodo para GUARDAR FECHA
     public void guadarFecha() {
         Date fecSelect = vra.jdtcFecNacAlm.getDate();
         alm.setFecNacAlm(fecSelect);
     }
-    //Metodo para LIMPIAR campos de texto
+    //Metodo para LIMPIAR CAMPOS de texto
     public void limpiar() {
         vra.jtxtDniAlm.setText(null);
         vra.jtxtApPatAlm.setText(null);
@@ -170,7 +171,17 @@ public class ControladorAlumno implements ActionListener {
         vra.jtxtSgNomAlm.setText(null);
         vra.jdtcFecNacAlm.setDate(null);
         vra.jtxtDniApd.setText(null);
-        vra.jtxtGradoAlm.setText(null);
-        vra.jtxtSeccionAlm.setText(null);
+        vra.jcbGradoAlm.setSelectedItem(null);
+        vra.jcbxSecAlm.setSelectedItem(null);
+    }
+    //Metodo para INGRESAR OPCIONES al combo box
+    public void opcCombBox(){
+        vra.jcbGradoAlm.addItem("PRIMERO");
+        vra.jcbGradoAlm.addItem("SEGUNDO");
+        vra.jcbGradoAlm.addItem("TERCERO");
+        vra.jcbGradoAlm.addItem("CUARTO");
+        vra.jcbGradoAlm.addItem("QUINTO");
+        vra.jcbxSecAlm.addItem("A");
+        vra.jcbxSecAlm.addItem("B");
     }
 }

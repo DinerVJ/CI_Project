@@ -6,13 +6,16 @@ package Vista;
 
 import Controlador.ControladorAlumno;
 import Controlador.ControladorApoderado;
+import Controlador.ControladorCurso;
 import Controlador.ControladorDocente;
 import Modelo.DAO.AlumnoDAO;
 import Modelo.DAO.ApoderadoDAO;
+import Modelo.DAO.CursoDAO;
 import Modelo.DAO.DocenteDAO;
 import Modelo.DAO.OtrosMetodos;
 import Modelo.DTO.Alumno;
 import Modelo.DTO.Apoderado;
+import Modelo.DTO.Curso;
 import Modelo.DTO.Docente;
 
 /**
@@ -50,6 +53,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jmniApd = new javax.swing.JMenuItem();
         jmnDct = new javax.swing.JMenu();
         jmniDct = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jmniCursos = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,6 +114,18 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jmnbVistaPrin.add(jmnDct);
 
+        jMenu3.setText("CURSOS");
+
+        jmniCursos.setText("Cursos");
+        jmniCursos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmniCursosActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jmniCursos);
+
+        jmnbVistaPrin.add(jMenu3);
+
         setJMenuBar(jmnbVistaPrin);
 
         pack();
@@ -150,6 +167,18 @@ public class VistaPrincipal extends javax.swing.JFrame {
         vd.show();
     }//GEN-LAST:event_jmniDctActionPerformed
 
+    private void jmniCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmniCursosActionPerformed
+        // TODO add your handling code here:
+        Curso c = new Curso();
+        CursoDAO dao = new CursoDAO();
+        VistaCurso vc = new VistaCurso();
+        OtrosMetodos om = new OtrosMetodos();
+        ControladorCurso cc = new ControladorCurso(c, dao, vc, om);
+        cc.iniciar();
+        jdskVistaPrin.add(vc);
+        vc.show();
+    }//GEN-LAST:event_jmniCursosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -188,10 +217,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     public javax.swing.JDesktopPane jdskVistaPrin;
     public javax.swing.JMenu jmnDct;
     private javax.swing.JMenuBar jmnbVistaPrin;
     private javax.swing.JMenuItem jmniApd;
+    public javax.swing.JMenuItem jmniCursos;
     public javax.swing.JMenuItem jmniDct;
     private javax.swing.JMenuItem jmniRegAlm;
     private javax.swing.JMenu jmnuAlm;

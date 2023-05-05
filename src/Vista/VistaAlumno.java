@@ -42,8 +42,8 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jlbldniApd = new javax.swing.JLabel();
-        jtxtGradoAlm = new javax.swing.JTextField();
-        jtxtSeccionAlm = new javax.swing.JTextField();
+        jcbGradoAlm = new javax.swing.JComboBox<>();
+        jcbxSecAlm = new javax.swing.JComboBox<>();
         jtxtDniApd = new javax.swing.JTextField();
         jPanel13 = new javax.swing.JPanel();
         jbtnRegAlm = new javax.swing.JButton();
@@ -74,6 +74,7 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
         jLabel3.setText("APELLIDO MATERNO:");
         jPanel11.add(jLabel3);
 
+        jtxtDniAlm.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DNI:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
         jtxtDniAlm.setOpaque(true);
         jPanel11.add(jtxtDniAlm);
         jPanel11.add(jtxtApPatAlm);
@@ -109,8 +110,10 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
 
         jlbldniApd.setText("DNI DE APODERADO:");
         jPanel7.add(jlbldniApd);
-        jPanel7.add(jtxtGradoAlm);
-        jPanel7.add(jtxtSeccionAlm);
+
+        jPanel7.add(jcbGradoAlm);
+
+        jPanel7.add(jcbxSecAlm);
         jPanel7.add(jtxtDniApd);
 
         jPanel8.add(jPanel7);
@@ -186,6 +189,8 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
     public javax.swing.JButton jbtnElmAlm;
     public javax.swing.JButton jbtnExpAlm;
     public javax.swing.JButton jbtnRegAlm;
+    public javax.swing.JComboBox<String> jcbGradoAlm;
+    public javax.swing.JComboBox<String> jcbxSecAlm;
     public com.toedter.calendar.JDateChooser jdtcFecNacAlm;
     private javax.swing.JLabel jlbNomAlm;
     private javax.swing.JLabel jlbldniApd;
@@ -197,9 +202,7 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
     public javax.swing.JTextField jtxtBusAlm;
     public javax.swing.JTextField jtxtDniAlm;
     public javax.swing.JTextField jtxtDniApd;
-    public javax.swing.JTextField jtxtGradoAlm;
     public javax.swing.JTextField jtxtNomAlm;
-    public javax.swing.JTextField jtxtSeccionAlm;
     public javax.swing.JTextField jtxtSgNomAlm;
     // End of variables declaration//GEN-END:variables
 }
