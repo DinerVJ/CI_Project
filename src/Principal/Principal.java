@@ -13,7 +13,7 @@ public class Principal {
         //ControladorLogin cl = new ControladorLogin(vl);
         //cl.iniciar();
         vl.setVisible(true);
-        vl.setLocationRelativeTo(null);
+        //vl.setLocationRelativeTo(null);
     }
     
 }

@@ -63,44 +63,98 @@ public class VistaDocente extends javax.swing.JInternalFrame {
 
         jPanel4.setLayout(new java.awt.GridLayout(2, 3));
 
+        jLabel1.setBackground(new java.awt.Color(0, 0, 51));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("DNI:");
+        jLabel1.setOpaque(true);
         jPanel4.add(jLabel1);
 
+        jLabel2.setBackground(new java.awt.Color(0, 0, 51));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("APELLIDO PATERNO:");
+        jLabel2.setOpaque(true);
         jPanel4.add(jLabel2);
 
+        jLabel3.setBackground(new java.awt.Color(0, 0, 51));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("APELLIDO MATERNO:");
+        jLabel3.setOpaque(true);
         jPanel4.add(jLabel3);
+
+        jtxtDniDct.setBackground(new java.awt.Color(153, 204, 255));
+        jtxtDniDct.setForeground(new java.awt.Color(0, 0, 0));
         jPanel4.add(jtxtDniDct);
+
+        jtxtApPatDct.setBackground(new java.awt.Color(153, 204, 255));
+        jtxtApPatDct.setForeground(new java.awt.Color(0, 0, 0));
         jPanel4.add(jtxtApPatDct);
+
+        jtxtApMatDct.setBackground(new java.awt.Color(153, 204, 255));
+        jtxtApMatDct.setForeground(new java.awt.Color(0, 0, 0));
         jPanel4.add(jtxtApMatDct);
 
         jPanel2.add(jPanel4);
 
         jPanel5.setLayout(new java.awt.GridLayout(2, 3));
 
+        jLabel4.setBackground(new java.awt.Color(0, 0, 51));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("NOMBRE:");
+        jLabel4.setOpaque(true);
         jPanel5.add(jLabel4);
 
+        jLabel5.setBackground(new java.awt.Color(0, 0, 51));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("SEGUNDO NOMBRE:");
+        jLabel5.setOpaque(true);
         jPanel5.add(jLabel5);
 
+        jLabel6.setBackground(new java.awt.Color(0, 0, 51));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("FECHA DE NACIMIENTO:");
+        jLabel6.setOpaque(true);
         jPanel5.add(jLabel6);
+
+        jtxtNomDct.setBackground(new java.awt.Color(153, 204, 255));
+        jtxtNomDct.setForeground(new java.awt.Color(0, 0, 0));
         jPanel5.add(jtxtNomDct);
+
+        jtxtSgNomDct.setBackground(new java.awt.Color(153, 204, 255));
+        jtxtSgNomDct.setForeground(new java.awt.Color(0, 0, 0));
         jPanel5.add(jtxtSgNomDct);
+
+        jdtcFecNacDct.setBackground(new java.awt.Color(153, 204, 255));
+        jdtcFecNacDct.setForeground(new java.awt.Color(0, 0, 0));
         jPanel5.add(jdtcFecNacDct);
 
         jPanel2.add(jPanel5);
 
+        jPanel6.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel6.setForeground(new java.awt.Color(255, 255, 255));
+
+        jbtnRegDct.setBackground(new java.awt.Color(0, 102, 255));
+        jbtnRegDct.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jbtnRegDct.setForeground(new java.awt.Color(0, 0, 0));
         jbtnRegDct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/disquete.png"))); // NOI18N
         jbtnRegDct.setText("REGISTRAR");
         jPanel6.add(jbtnRegDct);
 
+        jbtnActDct.setBackground(new java.awt.Color(0, 102, 255));
+        jbtnActDct.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jbtnActDct.setForeground(new java.awt.Color(0, 0, 0));
         jbtnActDct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/actualizar.png"))); // NOI18N
         jbtnActDct.setText("ACTUALIZAR");
         jPanel6.add(jbtnActDct);
 
+        jbtnElmDct.setBackground(new java.awt.Color(0, 102, 255));
+        jbtnElmDct.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jbtnElmDct.setForeground(new java.awt.Color(0, 0, 0));
         jbtnElmDct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/borrar.png"))); // NOI18N
         jbtnElmDct.setText("ELIMINAR");
         jPanel6.add(jbtnElmDct);
@@ -111,15 +165,29 @@ public class VistaDocente extends javax.swing.JInternalFrame {
 
         jPanel3.setLayout(new java.awt.GridLayout(2, 1));
 
+        jPanel12.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel12.setForeground(new java.awt.Color(255, 255, 255));
+
+        jbtnExpDct.setBackground(new java.awt.Color(0, 102, 255));
+        jbtnExpDct.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jbtnExpDct.setForeground(new java.awt.Color(0, 0, 0));
         jbtnExpDct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/excel.png"))); // NOI18N
         jbtnExpDct.setText("EXPORTAR");
         jPanel12.add(jbtnExpDct);
 
         jPanel3.add(jPanel12);
 
+        jPanel13.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel13.setForeground(new java.awt.Color(255, 255, 255));
         jPanel13.setLayout(new javax.swing.BoxLayout(jPanel13, javax.swing.BoxLayout.LINE_AXIS));
+
+        jtxtBusDct.setBackground(new java.awt.Color(153, 204, 255));
+        jtxtBusDct.setForeground(new java.awt.Color(0, 0, 0));
         jPanel13.add(jtxtBusDct);
 
+        jbtnBusDct.setBackground(new java.awt.Color(0, 102, 255));
+        jbtnBusDct.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jbtnBusDct.setForeground(new java.awt.Color(0, 0, 0));
         jbtnBusDct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/lupa.png"))); // NOI18N
         jbtnBusDct.setText("BUSCAR");
         jPanel13.add(jbtnBusDct);

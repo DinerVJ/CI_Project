@@ -18,7 +18,8 @@ public class VistaLogin extends javax.swing.JFrame {
      */
     public VistaLogin() {
         initComponents();
-        setSize(600, 500);
+        setSize(512, 500);
+        this.setLocationRelativeTo(this);
     }
 
     /**
@@ -34,26 +35,42 @@ public class VistaLogin extends javax.swing.JFrame {
         jpwPassword = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         jtxtUser = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("LOGIN");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnIngresar.setBackground(new java.awt.Color(0, 0, 102));
+        btnIngresar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnIngresar.setForeground(new java.awt.Color(255, 255, 255));
         btnIngresar.setText("INGRESAR");
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIngresarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 100, 40));
+        getContentPane().add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 140, 40));
 
-        jpwPassword.setBorder(javax.swing.BorderFactory.createTitledBorder("CONTRASEÑA:"));
-        getContentPane().add(jpwPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 300, 60));
+        jpwPassword.setBackground(new java.awt.Color(255, 255, 255));
+        jpwPassword.setForeground(new java.awt.Color(0, 0, 0));
+        jpwPassword.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CONTRASEÑA:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(0, 0, 0))); // NOI18N
+        getContentPane().add(jpwPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 300, 60));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("INICIAR SESION");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 79, 200, 50));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 390, 50));
 
-        jtxtUser.setBorder(javax.swing.BorderFactory.createTitledBorder("USUARIO:"));
-        getContentPane().add(jtxtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 300, 60));
+        jtxtUser.setBackground(new java.awt.Color(255, 255, 255));
+        jtxtUser.setForeground(new java.awt.Color(0, 0, 0));
+        jtxtUser.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "USUARIO:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(0, 0, 0))); // NOI18N
+        getContentPane().add(jtxtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 300, 60));
+
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/perfil-del-usuario.png"))); // NOI18N
+        jLabel2.setOpaque(true);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -81,6 +98,7 @@ public class VistaLogin extends javax.swing.JFrame {
                         VistaPrincipal vp = new VistaPrincipal();
                         vp.setVisible(true);
                         vp.setLocationRelativeTo(this);
+                        this.dispose();
                     }
                     if (priv.equals("SECRETARIO/A")) {
                         VistaPrincipal vp = new VistaPrincipal();
@@ -88,6 +106,7 @@ public class VistaLogin extends javax.swing.JFrame {
                         vp.setLocationRelativeTo(this);
                         vp.jmnDct.setVisible(false);
                         vp.jmnuUser.setVisible(false);
+                        this.dispose();
                     }
                 } else {
                     System.out.println("Error");
@@ -143,6 +162,7 @@ public class VistaLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnIngresar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     public javax.swing.JPasswordField jpwPassword;
     public javax.swing.JTextField jtxtUser;
     // End of variables declaration//GEN-END:variables

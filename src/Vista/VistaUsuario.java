@@ -37,17 +37,29 @@ public class VistaUsuario extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 51, 102));
+        setBackground(new java.awt.Color(153, 0, 0));
         setOpaque(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jtxtUsername.setBorder(javax.swing.BorderFactory.createTitledBorder("NOMBRE DE USUARIO:"));
+        jtxtUsername.setBackground(new java.awt.Color(204, 102, 0));
+        jtxtUsername.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jtxtUsername.setForeground(new java.awt.Color(0, 0, 0));
+        jtxtUsername.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "USUARIO:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jtxtUsername.setOpaque(true);
         getContentPane().add(jtxtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 200, 50));
 
-        jtxtPassword.setBorder(javax.swing.BorderFactory.createTitledBorder("CONTRASEÑA:"));
+        jtxtPassword.setBackground(new java.awt.Color(204, 102, 0));
+        jtxtPassword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jtxtPassword.setForeground(new java.awt.Color(0, 0, 0));
+        jtxtPassword.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CONTRASEÑA:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jtxtPassword.setOpaque(true);
         getContentPane().add(jtxtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 200, 60));
 
-        jcbProfile.setBorder(javax.swing.BorderFactory.createTitledBorder("PRIVILEGIO:"));
+        jcbProfile.setBackground(new java.awt.Color(204, 102, 0));
+        jcbProfile.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jcbProfile.setForeground(new java.awt.Color(0, 0, 0));
+        jcbProfile.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PRIVILEGIO:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jcbProfile.setOpaque(true);
         jcbProfile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbProfileActionPerformed(evt);
@@ -55,7 +67,11 @@ public class VistaUsuario extends javax.swing.JInternalFrame {
         });
         getContentPane().add(jcbProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 200, 60));
 
-        jcbActive.setBorder(javax.swing.BorderFactory.createTitledBorder("ESTADO:"));
+        jcbActive.setBackground(new java.awt.Color(204, 102, 0));
+        jcbActive.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jcbActive.setForeground(new java.awt.Color(0, 0, 0));
+        jcbActive.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ESTADO:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jcbActive.setOpaque(true);
         jcbActive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbActiveActionPerformed(evt);
@@ -63,9 +79,12 @@ public class VistaUsuario extends javax.swing.JInternalFrame {
         });
         getContentPane().add(jcbActive, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, 200, 60));
 
+        jbtnRegistrarUser.setBackground(new java.awt.Color(0, 0, 153));
+        jbtnRegistrarUser.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jbtnRegistrarUser.setForeground(new java.awt.Color(255, 255, 255));
         jbtnRegistrarUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/disquete.png"))); // NOI18N
         jbtnRegistrarUser.setText("REGISTRAR");
-        getContentPane().add(jbtnRegistrarUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 150, 50));
+        getContentPane().add(jbtnRegistrarUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 200, 50));
 
         jtblUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -79,11 +98,15 @@ public class VistaUsuario extends javax.swing.JInternalFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 650, 200));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("0 - INACTIVO");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 210, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 210, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("1 - ACTIVO");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 180, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 180, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

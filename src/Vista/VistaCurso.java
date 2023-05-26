@@ -42,15 +42,20 @@ public class VistaCurso extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtblCur = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(0, 0, 0));
+        setOpaque(true);
+
         jPanel1.setLayout(new java.awt.BorderLayout());
 
         jPanel2.setLayout(new java.awt.GridLayout(2, 0));
+
+        jPanel5.setBackground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 718, Short.MAX_VALUE)
+            .addGap(0, 732, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -59,33 +64,58 @@ public class VistaCurso extends javax.swing.JInternalFrame {
 
         jPanel2.add(jPanel5);
 
+        jPanel6.setBackground(new java.awt.Color(204, 204, 204));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel6.add(jtxtNomCrs, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 133, -1));
 
+        jtxtNomCrs.setBackground(new java.awt.Color(0, 0, 51));
+        jtxtNomCrs.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jtxtNomCrs.setForeground(new java.awt.Color(255, 255, 255));
+        jtxtNomCrs.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CURSO:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel6.add(jtxtNomCrs, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 190, -1));
+
+        jbtnCrearCrs.setBackground(new java.awt.Color(0, 0, 0));
+        jbtnCrearCrs.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jbtnCrearCrs.setForeground(new java.awt.Color(255, 255, 255));
         jbtnCrearCrs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/disquete.png"))); // NOI18N
         jbtnCrearCrs.setText("AGREGAR");
-        jPanel6.add(jbtnCrearCrs, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, -1, -1));
+        jPanel6.add(jbtnCrearCrs, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
 
+        jtbnElmCur.setBackground(new java.awt.Color(0, 0, 0));
+        jtbnElmCur.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jtbnElmCur.setForeground(new java.awt.Color(255, 255, 255));
         jtbnElmCur.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/borrar.png"))); // NOI18N
         jtbnElmCur.setText("ELIMINAR");
-        jPanel6.add(jtbnElmCur, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, -1, -1));
+        jPanel6.add(jtbnElmCur, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, -1, -1));
 
+        jbtnActCur.setBackground(new java.awt.Color(0, 0, 0));
+        jbtnActCur.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jbtnActCur.setForeground(new java.awt.Color(255, 255, 255));
         jbtnActCur.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/actualizar.png"))); // NOI18N
         jbtnActCur.setText("MODIFICAR");
-        jPanel6.add(jbtnActCur, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, -1, -1));
+        jPanel6.add(jbtnActCur, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, -1, -1));
 
         jPanel2.add(jPanel6);
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel3.add(jtxtBusCrs, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 260, -1));
 
+        jtxtBusCrs.setBackground(new java.awt.Color(0, 0, 51));
+        jtxtBusCrs.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jtxtBusCrs.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(jtxtBusCrs, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 380, 30));
+
+        jbtnBusCrs.setBackground(new java.awt.Color(0, 0, 0));
+        jbtnBusCrs.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jbtnBusCrs.setForeground(new java.awt.Color(255, 255, 255));
         jbtnBusCrs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/lupa.png"))); // NOI18N
         jbtnBusCrs.setText("BUSCAR CURSO");
         jPanel3.add(jbtnBusCrs, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
 
         jPanel1.add(jPanel3, java.awt.BorderLayout.PAGE_END);
+
+        jPanel4.setBackground(new java.awt.Color(204, 204, 204));
 
         jtblCur.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
