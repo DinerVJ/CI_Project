@@ -93,12 +93,15 @@ public class VistaDocente extends javax.swing.JInternalFrame {
 
         jPanel2.add(jPanel5);
 
+        jbtnRegDct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/disquete.png"))); // NOI18N
         jbtnRegDct.setText("REGISTRAR");
         jPanel6.add(jbtnRegDct);
 
+        jbtnActDct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/actualizar.png"))); // NOI18N
         jbtnActDct.setText("ACTUALIZAR");
         jPanel6.add(jbtnActDct);
 
+        jbtnElmDct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/borrar.png"))); // NOI18N
         jbtnElmDct.setText("ELIMINAR");
         jPanel6.add(jbtnElmDct);
 
@@ -108,6 +111,7 @@ public class VistaDocente extends javax.swing.JInternalFrame {
 
         jPanel3.setLayout(new java.awt.GridLayout(2, 1));
 
+        jbtnExpDct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/excel.png"))); // NOI18N
         jbtnExpDct.setText("EXPORTAR");
         jPanel12.add(jbtnExpDct);
 
@@ -116,6 +120,7 @@ public class VistaDocente extends javax.swing.JInternalFrame {
         jPanel13.setLayout(new javax.swing.BoxLayout(jPanel13, javax.swing.BoxLayout.LINE_AXIS));
         jPanel13.add(jtxtBusDct);
 
+        jbtnBusDct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/lupa.png"))); // NOI18N
         jbtnBusDct.setText("BUSCAR");
         jPanel13.add(jbtnBusDct);
 

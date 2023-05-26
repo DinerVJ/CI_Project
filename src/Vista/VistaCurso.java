@@ -60,16 +60,19 @@ public class VistaCurso extends javax.swing.JInternalFrame {
         jPanel2.add(jPanel5);
 
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel6.add(jtxtNomCrs, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 133, -1));
+        jPanel6.add(jtxtNomCrs, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 133, -1));
 
+        jbtnCrearCrs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/disquete.png"))); // NOI18N
         jbtnCrearCrs.setText("AGREGAR");
-        jPanel6.add(jbtnCrearCrs, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, -1, -1));
+        jPanel6.add(jbtnCrearCrs, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, -1, -1));
 
+        jtbnElmCur.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/borrar.png"))); // NOI18N
         jtbnElmCur.setText("ELIMINAR");
-        jPanel6.add(jtbnElmCur, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, -1, -1));
+        jPanel6.add(jtbnElmCur, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, -1, -1));
 
+        jbtnActCur.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/actualizar.png"))); // NOI18N
         jbtnActCur.setText("MODIFICAR");
-        jPanel6.add(jbtnActCur, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, -1, -1));
+        jPanel6.add(jbtnActCur, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, -1, -1));
 
         jPanel2.add(jPanel6);
 
@@ -78,6 +81,7 @@ public class VistaCurso extends javax.swing.JInternalFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel3.add(jtxtBusCrs, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 260, -1));
 
+        jbtnBusCrs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/lupa.png"))); // NOI18N
         jbtnBusCrs.setText("BUSCAR CURSO");
         jPanel3.add(jbtnBusCrs, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
 

@@ -93,12 +93,15 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
 
         jPanel2.add(jPanel5);
 
+        jbtnRegApd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/disquete.png"))); // NOI18N
         jbtnRegApd.setText("REGISTRAR");
         jPanel6.add(jbtnRegApd);
 
+        jbtnActApd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/actualizar.png"))); // NOI18N
         jbtnActApd.setText("ACTUALIZAR");
         jPanel6.add(jbtnActApd);
 
+        jbtnElmApd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/borrar.png"))); // NOI18N
         jbtnElmApd.setText("BORRAR");
         jPanel6.add(jbtnElmApd);
 
@@ -108,6 +111,7 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
 
         jPanel3.setLayout(new java.awt.GridLayout(2, 0));
 
+        jbtnExpApd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/excel.png"))); // NOI18N
         jbtnExpApd.setText("EXPORTAR");
         jPanel12.add(jbtnExpApd);
 
@@ -116,6 +120,7 @@ public class VistaApoderado extends javax.swing.JInternalFrame {
         jPanel13.setLayout(new javax.swing.BoxLayout(jPanel13, javax.swing.BoxLayout.LINE_AXIS));
         jPanel13.add(jtxtBusApd);
 
+        jbtnBusApd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/lupa.png"))); // NOI18N
         jbtnBusApd.setText("BUSCAR");
         jPanel13.add(jbtnBusApd);
 

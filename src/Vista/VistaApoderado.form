@@ -127,6 +127,9 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="jbtnRegApd">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Img/disquete.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="REGISTRAR"/>
                   </Properties>
                   <AuxValues>
@@ -135,6 +138,9 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jbtnActApd">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Img/actualizar.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="ACTUALIZAR"/>
                   </Properties>
                   <AuxValues>
@@ -143,6 +149,9 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jbtnElmApd">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Img/borrar.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="BORRAR"/>
                   </Properties>
                   <AuxValues>
@@ -171,6 +180,9 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="jbtnExpApd">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Img/excel.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="EXPORTAR"/>
                   </Properties>
                   <AuxValues>
@@ -190,6 +202,9 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jbtnBusApd">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Img/lupa.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="BUSCAR"/>
                   </Properties>
                   <AuxValues>

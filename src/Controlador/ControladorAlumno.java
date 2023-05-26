@@ -6,6 +6,7 @@ import Modelo.DTO.Alumno;
 import Vista.VistaAlumno;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
@@ -32,6 +33,7 @@ public class ControladorAlumno implements ActionListener {
         this.vra.jbtnBusAlm.addActionListener(this);
         this.vra.jbtnExpAlm.addActionListener(this);
     }
+    
     // Metodo de INICIO
     public void iniciar() {
         vra.setTitle("DATOS DEL ALUMNO");
@@ -147,7 +149,7 @@ public class ControladorAlumno implements ActionListener {
         }
         vra.jtblAlm.setModel(dtblm);
     }
-    //Metodo para LIMPIAR registros de la tabla ALUMNOS
+    //Metodo para LIMPIAR registros de la tabla
     public void limpiarListaAlm(JTable jtblAlm){
         if (vra.jtblAlm != null) {
             dtblm.setRowCount(0);

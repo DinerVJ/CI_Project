@@ -8,15 +8,18 @@ import Controlador.ControladorAlumno;
 import Controlador.ControladorApoderado;
 import Controlador.ControladorCurso;
 import Controlador.ControladorDocente;
+import Controlador.ControladorUsuario;
 import Modelo.DAO.AlumnoDAO;
 import Modelo.DAO.ApoderadoDAO;
 import Modelo.DAO.CursoDAO;
 import Modelo.DAO.DocenteDAO;
 import Modelo.DAO.OtrosMetodos;
+import Modelo.DAO.UsuarioDAO;
 import Modelo.DTO.Alumno;
 import Modelo.DTO.Apoderado;
 import Modelo.DTO.Curso;
 import Modelo.DTO.Docente;
+import Modelo.DTO.Usuario;
 
 /**
  *
@@ -46,7 +49,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jpnlDesk = new javax.swing.JPanel();
         jdskVistaPrin = new javax.swing.JDesktopPane();
         jmnbVistaPrin = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        jmnuUser = new javax.swing.JMenu();
+        jmniRegUser = new javax.swing.JMenuItem();
         jmnuAlm = new javax.swing.JMenu();
         jmniRegAlm = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -75,8 +79,17 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         getContentPane().add(jpnlDesk, java.awt.BorderLayout.CENTER);
 
-        jMenu1.setText("File");
-        jmnbVistaPrin.add(jMenu1);
+        jmnuUser.setText("USUARIO");
+
+        jmniRegUser.setText("Registrar Usuario");
+        jmniRegUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmniRegUserActionPerformed(evt);
+            }
+        });
+        jmnuUser.add(jmniRegUser);
+
+        jmnbVistaPrin.add(jmnuUser);
 
         jmnuAlm.setText("ALUMNO");
 
@@ -179,6 +192,17 @@ public class VistaPrincipal extends javax.swing.JFrame {
         vc.show();
     }//GEN-LAST:event_jmniCursosActionPerformed
 
+    private void jmniRegUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmniRegUserActionPerformed
+        // TODO add your handling code here:
+        Usuario u = new Usuario();
+        UsuarioDAO dao = new UsuarioDAO();
+        VistaUsuario vu = new VistaUsuario();
+        ControladorUsuario cu = new ControladorUsuario(u, dao, vu);
+        cu.Iniciar();
+        jdskVistaPrin.add(vu);
+        vu.show();
+    }//GEN-LAST:event_jmniRegUserActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -215,9 +239,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
+    public javax.swing.JMenu jMenu2;
+    public javax.swing.JMenu jMenu3;
     public javax.swing.JDesktopPane jdskVistaPrin;
     public javax.swing.JMenu jmnDct;
     private javax.swing.JMenuBar jmnbVistaPrin;
@@ -225,7 +248,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
     public javax.swing.JMenuItem jmniCursos;
     public javax.swing.JMenuItem jmniDct;
     private javax.swing.JMenuItem jmniRegAlm;
-    private javax.swing.JMenu jmnuAlm;
+    public javax.swing.JMenuItem jmniRegUser;
+    public javax.swing.JMenu jmnuAlm;
+    public javax.swing.JMenu jmnuUser;
     private javax.swing.JPanel jpnlDesk;
     // End of variables declaration//GEN-END:variables
 }
