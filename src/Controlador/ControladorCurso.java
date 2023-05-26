@@ -32,7 +32,7 @@ public class ControladorCurso implements ActionListener{
     }
     //Metodo de INICIO
     public void iniciar() {
-        vc.setTitle("DATOS DEL ALUMNO");
+        vc.setTitle("DATOS DEL CURSO");
         mostrarEncabezados(vc.jtblCur);
         listarCur();
     }
