@@ -52,6 +52,7 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
         jPanel9 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jbtnExpAlm = new javax.swing.JButton();
+        btnPdf = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jtxtBusAlm = new javax.swing.JTextField();
         jbtnBusAlm = new javax.swing.JButton();
@@ -195,6 +196,18 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
         jbtnExpAlm.setText("EXPORTAR");
         jPanel5.add(jbtnExpAlm);
 
+        btnPdf.setBackground(new java.awt.Color(102, 0, 0));
+        btnPdf.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnPdf.setForeground(new java.awt.Color(255, 102, 0));
+        btnPdf.setText("PDF");
+        btnPdf.setPreferredSize(new java.awt.Dimension(138, 39));
+        btnPdf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPdfActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnPdf);
+
         jPanel9.add(jPanel5);
 
         jPanel6.setBackground(new java.awt.Color(0, 0, 51));
@@ -232,8 +245,13 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPdfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPdfActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnPdf;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

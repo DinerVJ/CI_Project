@@ -1,12 +1,19 @@
 package Modelo.DAO;
 
 import Modelo.DTO.Alumno;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 
 public class AlumnoDAO implements IntAlumnoDAO {
 
@@ -161,4 +168,52 @@ public class AlumnoDAO implements IntAlumnoDAO {
         return listaAlm;
     }
 
+    public void exportarDatosPDF() {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        cn = ConexionBD.conectar();
+        Document d = new Document();
+        try {
+            //String ruta = System.getProperty("user.home");
+            PdfWriter.getInstance(d, new FileOutputStream("src/pdf-reports/reporte.pdf"));
+            d.open();
+            
+            PdfPTable tbpdf = new PdfPTable(9);
+            tbpdf.addCell("DNI");
+            tbpdf.addCell("Apellido Paterno");
+            tbpdf.addCell("Apellido Materno");
+            tbpdf.addCell("Nombre");
+            tbpdf.addCell("Segundo Nombre");
+            tbpdf.addCell("Fecha Nacimiento");
+            tbpdf.addCell("DNI de Apoderado");
+            tbpdf.addCell("Grado");
+            tbpdf.addCell("Sección");
+            try {
+                ps = cn.prepareStatement("SELECT * FROM alumno");
+                rs = ps.executeQuery();
+
+                if (rs.next()) {
+                    do {
+                        tbpdf.addCell(rs.getString(1));
+                        tbpdf.addCell(rs.getString(2));
+                        tbpdf.addCell(rs.getString(3));
+                        tbpdf.addCell(rs.getString(4));
+                        tbpdf.addCell(rs.getString(5));
+                        tbpdf.addCell(rs.getString(6));
+                        tbpdf.addCell(rs.getString(7));
+                        tbpdf.addCell(rs.getString(8));
+                        tbpdf.addCell(rs.getString(9));
+                    } while (rs.next());
+                    d.add(tbpdf);
+                } else {
+                    JOptionPane.showMessageDialog(null, "No existe boleta para el dni indicado");
+                }
+            } catch (Exception e) {
+            }
+            d.close();
+            
+        } catch (DocumentException | FileNotFoundException e) {
+            System.out.println("Error " + e);
+        } 
+    }
 }

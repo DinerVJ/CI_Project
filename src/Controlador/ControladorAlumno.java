@@ -32,6 +32,7 @@ public class ControladorAlumno implements ActionListener {
         this.vra.jbtnElmAlm.addActionListener(this);
         this.vra.jbtnBusAlm.addActionListener(this);
         this.vra.jbtnExpAlm.addActionListener(this);
+        this.vra.btnPdf.addActionListener(this);
     }
     
     // Metodo de INICIO
@@ -126,6 +127,14 @@ public class ControladorAlumno implements ActionListener {
             try {
                 om.exportarDatosDocente(vra.jtblAlm);
             } catch (IOException ex) {
+                //Logger.getLogger(ControladorDocente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        //
+        if (e.getSource() == vra.btnPdf) {
+            try {
+                dao.exportarDatosPDF();
+            } catch (Exception ex) {
                 //Logger.getLogger(ControladorDocente.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
