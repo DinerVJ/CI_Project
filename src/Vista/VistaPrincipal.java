@@ -6,14 +6,20 @@ package Vista;
 
 import Controlador.ControladorAlumno;
 import Controlador.ControladorApoderado;
+import Controlador.ControladorCurso;
 import Controlador.ControladorDocente;
+import Controlador.ControladorUsuario;
 import Modelo.DAO.AlumnoDAO;
 import Modelo.DAO.ApoderadoDAO;
+import Modelo.DAO.CursoDAO;
 import Modelo.DAO.DocenteDAO;
 import Modelo.DAO.OtrosMetodos;
+import Modelo.DAO.UsuarioDAO;
 import Modelo.DTO.Alumno;
 import Modelo.DTO.Apoderado;
+import Modelo.DTO.Curso;
 import Modelo.DTO.Docente;
+import Modelo.DTO.Usuario;
 
 /**
  *
@@ -42,37 +48,87 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jpnlDesk = new javax.swing.JPanel();
         jdskVistaPrin = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
         jmnbVistaPrin = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jmnuUser = new javax.swing.JMenu();
+        jmniRegUser = new javax.swing.JMenuItem();
+        jmniCerrarSesion = new javax.swing.JMenuItem();
         jmnuAlm = new javax.swing.JMenu();
         jmniRegAlm = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jmniApd = new javax.swing.JMenuItem();
         jmnDct = new javax.swing.JMenu();
         jmniDct = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jmniCursos = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("SISTEMA DE LA IE MIGUEL DE LA MATA BERAÚN");
+        setBackground(new java.awt.Color(0, 0, 0));
+        setFont(new java.awt.Font("Agency FB", 1, 10)); // NOI18N
 
         jpnlDesk.setLayout(new java.awt.BorderLayout());
+
+        jdskVistaPrin.setBackground(new java.awt.Color(0, 0, 51));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/MMB-Portada.jpg"))); // NOI18N
+
+        jdskVistaPrin.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jdskVistaPrinLayout = new javax.swing.GroupLayout(jdskVistaPrin);
         jdskVistaPrin.setLayout(jdskVistaPrinLayout);
         jdskVistaPrinLayout.setHorizontalGroup(
             jdskVistaPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jdskVistaPrinLayout.createSequentialGroup()
+                .addGap(84, 84, 84)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(116, Short.MAX_VALUE))
         );
         jdskVistaPrinLayout.setVerticalGroup(
             jdskVistaPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGroup(jdskVistaPrinLayout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(147, Short.MAX_VALUE))
         );
 
         jpnlDesk.add(jdskVistaPrin, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(jpnlDesk, java.awt.BorderLayout.CENTER);
 
-        jMenu1.setText("File");
+        jmnbVistaPrin.setBackground(new java.awt.Color(102, 0, 0));
+        jmnbVistaPrin.setForeground(new java.awt.Color(255, 153, 0));
+        jmnbVistaPrin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jmnbVistaPrin.setOpaque(true);
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/logo-mmb.jpg"))); // NOI18N
         jmnbVistaPrin.add(jMenu1);
 
+        jmnuUser.setForeground(new java.awt.Color(255, 153, 0));
+        jmnuUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/usuario.png"))); // NOI18N
+        jmnuUser.setText("USUARIO");
+
+        jmniRegUser.setText("Registrar Usuario");
+        jmniRegUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmniRegUserActionPerformed(evt);
+            }
+        });
+        jmnuUser.add(jmniRegUser);
+
+        jmniCerrarSesion.setText("Cerrar Sesion");
+        jmniCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmniCerrarSesionActionPerformed(evt);
+            }
+        });
+        jmnuUser.add(jmniCerrarSesion);
+
+        jmnbVistaPrin.add(jmnuUser);
+
+        jmnuAlm.setForeground(new java.awt.Color(255, 153, 0));
+        jmnuAlm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/graduado.png"))); // NOI18N
         jmnuAlm.setText("ALUMNO");
 
         jmniRegAlm.setText("Registrar Alumno");
@@ -85,6 +141,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jmnbVistaPrin.add(jmnuAlm);
 
+        jMenu2.setForeground(new java.awt.Color(255, 153, 0));
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/padres.png"))); // NOI18N
         jMenu2.setText("APODERADO");
 
         jmniApd.setText("Apoderado");
@@ -97,6 +155,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jmnbVistaPrin.add(jMenu2);
 
+        jmnDct.setForeground(new java.awt.Color(255, 153, 0));
+        jmnDct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/aprendiendo.png"))); // NOI18N
         jmnDct.setText("DOCENTE");
 
         jmniDct.setText("Docente");
@@ -108,6 +168,20 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jmnDct.add(jmniDct);
 
         jmnbVistaPrin.add(jmnDct);
+
+        jMenu3.setForeground(new java.awt.Color(255, 153, 0));
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/graduacion.png"))); // NOI18N
+        jMenu3.setText("CURSOS");
+
+        jmniCursos.setText("Cursos");
+        jmniCursos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmniCursosActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jmniCursos);
+
+        jmnbVistaPrin.add(jMenu3);
 
         setJMenuBar(jmnbVistaPrin);
 
@@ -150,6 +224,36 @@ public class VistaPrincipal extends javax.swing.JFrame {
         vd.show();
     }//GEN-LAST:event_jmniDctActionPerformed
 
+    private void jmniCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmniCursosActionPerformed
+        // TODO add your handling code here:
+        Curso c = new Curso();
+        CursoDAO dao = new CursoDAO();
+        VistaCurso vc = new VistaCurso();
+        OtrosMetodos om = new OtrosMetodos();
+        ControladorCurso cc = new ControladorCurso(c, dao, vc, om);
+        cc.iniciar();
+        jdskVistaPrin.add(vc);
+        vc.show();
+    }//GEN-LAST:event_jmniCursosActionPerformed
+
+    private void jmniRegUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmniRegUserActionPerformed
+        // TODO add your handling code here:
+        Usuario u = new Usuario();
+        UsuarioDAO dao = new UsuarioDAO();
+        VistaUsuario vu = new VistaUsuario();
+        ControladorUsuario cu = new ControladorUsuario(u, dao, vu);
+        cu.Iniciar();
+        jdskVistaPrin.add(vu);
+        vu.show();
+    }//GEN-LAST:event_jmniRegUserActionPerformed
+
+    private void jmniCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmniCerrarSesionActionPerformed
+        // TODO add your handling code here:
+        VistaLogin vl = new VistaLogin();
+        vl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jmniCerrarSesionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -186,15 +290,21 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    public javax.swing.JMenu jMenu2;
+    public javax.swing.JMenu jMenu3;
     public javax.swing.JDesktopPane jdskVistaPrin;
     public javax.swing.JMenu jmnDct;
     private javax.swing.JMenuBar jmnbVistaPrin;
     private javax.swing.JMenuItem jmniApd;
+    public javax.swing.JMenuItem jmniCerrarSesion;
+    public javax.swing.JMenuItem jmniCursos;
     public javax.swing.JMenuItem jmniDct;
     private javax.swing.JMenuItem jmniRegAlm;
-    private javax.swing.JMenu jmnuAlm;
+    public javax.swing.JMenuItem jmniRegUser;
+    public javax.swing.JMenu jmnuAlm;
+    public javax.swing.JMenu jmnuUser;
     private javax.swing.JPanel jpnlDesk;
     // End of variables declaration//GEN-END:variables
 }

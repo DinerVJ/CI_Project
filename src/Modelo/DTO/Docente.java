@@ -1,6 +1,8 @@
 
 package Modelo.DTO;
 
+import java.util.Date;
+
 public class Docente {
     
     private String dniDct;
@@ -8,12 +10,12 @@ public class Docente {
     private String apMatDct;
     private String nomDct;
     private String sgNomDct;
-    private String fecNacDct;
+    private Date fecNacDct;
 
     public Docente() {
     }
 
-    public Docente(String dniDct, String apPatDct, String apMatDct, String nomDct, String sgNomDct, String fecNacDct) {
+    public Docente(String dniDct, String apPatDct, String apMatDct, String nomDct, String sgNomDct, Date fecNacDct) {
         this.dniDct = dniDct;
         this.apPatDct = apPatDct;
         this.apMatDct = apMatDct;
@@ -62,11 +64,11 @@ public class Docente {
         this.sgNomDct = sgNomDct;
     }
 
-    public String getFecNacDct() {
+    public Date getFecNacDct() {
         return fecNacDct;
     }
 
-    public void setFecNacDct(String fecNacDct) {
+    public void setFecNacDct(Date fecNacDct) {
         this.fecNacDct = fecNacDct;
     }
     

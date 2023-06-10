@@ -8,6 +8,7 @@ import Vista.VistaApoderado;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -34,9 +35,10 @@ public class ControladorApoderado implements ActionListener{
     }
     
     public void iniciarCtrApd(){
-        vap.setTitle("DATOS DE APODERADO");
+        vap.setTitle("DATOS DEL APODERADO");
         mostrarEncabezados(vap.jtblApd);
         listarApd();
+        formatoFecha();
     }
     
     public void mostrarEncabezados(JTable tbl){
@@ -48,12 +50,13 @@ public class ControladorApoderado implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vap.jbtnRegApd) {
+            limpiarListaApd(vap.jtblApd);
             apd.setDniApd(vap.jtxtDniApd.getText());
             apd.setApPatApd(vap.jtxtApPatApd.getText());
             apd.setApMatApd(vap.jtxtApMatApd.getText());
             apd.setNomApd(vap.jtxtNomApd.getText());
             apd.setSgNomApd(vap.jtxtSgNomApd.getText());
-            apd.setFecNacApd(vap.jtxtFecNacApd.getText());
+            apd.setFecNacApd(vap.jdtcFecNacApd.getDate());
             if (dao.crearApoderado(apd)) {
                 JOptionPane.showMessageDialog(null, "ALUMNO REGISTRADO EXITOSAMENTE!");
                 limpiar();
@@ -71,7 +74,7 @@ public class ControladorApoderado implements ActionListener{
                 vap.jtxtApMatApd.setText(apd.getApMatApd());
                 vap.jtxtNomApd.setText(apd.getNomApd());
                 vap.jtxtSgNomApd.setText(apd.getSgNomApd());
-                vap.jtxtFecNacApd.setText(apd.getFecNacApd());
+                vap.jdtcFecNacApd.setDate(apd.getFecNacApd());
                 vap.jtxtBusApd.setText(null);
             } else {
                 JOptionPane.showMessageDialog(null, "NO SE ENCONTRO REGISTRO!");
@@ -80,13 +83,14 @@ public class ControladorApoderado implements ActionListener{
 
         if (e.getSource() == vap.jbtnActApd) {
             //alm.setDniAlm(vra.jtxtDniAlm.getText());
+            limpiarListaApd(vap.jtblApd);
             if (dao.actualizarApoderado(apd)) {
                 apd.setDniApd(vap.jtxtDniApd.getText());
                 apd.setApPatApd(vap.jtxtApPatApd.getText());
                 apd.setApMatApd(vap.jtxtApMatApd.getText());
                 apd.setNomApd(vap.jtxtNomApd.getText());
                 apd.setSgNomApd(vap.jtxtSgNomApd.getText());
-                apd.setFecNacApd(vap.jtxtFecNacApd.getText());
+                apd.setFecNacApd(vap.jdtcFecNacApd.getDate());
                 if (dao.actualizarApoderado(apd)) {
                     JOptionPane.showMessageDialog(null, "EXITO! Registro actualizado.");
                     limpiar();
@@ -98,6 +102,7 @@ public class ControladorApoderado implements ActionListener{
         }
 
         if (e.getSource() == vap.jbtnElmApd) {
+            limpiarListaApd(vap.jtblApd);
             apd.setDniApd(vap.jtxtDniApd.getText());
             if (dao.eliminarApoderado(apd)) {
                 JOptionPane.showMessageDialog(null, "¡EXITOSO! Registro eliminado.");
@@ -122,7 +127,7 @@ public class ControladorApoderado implements ActionListener{
         vap.jtxtApMatApd.setText(null);
         vap.jtxtNomApd.setText(null);
         vap.jtxtSgNomApd.setText(null);
-        vap.jtxtFecNacApd.setText(null);
+        vap.jdtcFecNacApd.setDate(null);
     }
     
     public void listarApd(){
@@ -140,5 +145,19 @@ public class ControladorApoderado implements ActionListener{
         }
         vap.jtblApd.setModel(dtm);
     }
-    
+    //Metodo para LIMPIAR registros de la tabla ALUMNOS
+    public void limpiarListaApd(JTable jtblApd){
+        if (vap.jtblApd != null) {
+            dtm.setRowCount(0);
+        }
+    }
+    //Metodo para DAR FORMATO a la fecha
+    public void formatoFecha() {
+        vap.jdtcFecNacApd.setDateFormatString("yyyy-MM-dd");
+    }
+    //Metodo para GUARDAR fecha
+    public void guadarFecha() {
+        Date fecSelect = vap.jdtcFecNacApd.getDate();
+        apd.setFecNacApd(fecSelect);
+    }
 }

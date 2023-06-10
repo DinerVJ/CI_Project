@@ -1,22 +1,28 @@
+
 package Modelo.DAO;
 
-import Modelo.DTO.Curso;
-import java.util.List;
+import Modelo.DTO.Usuario;
 import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
-public class CursoDAO implements IntCursoDAO{
+public class UsuarioDAO implements IntUsuarioDAO{
 
     private Connection cn;
     
     @Override
-    public boolean crearCurso(Curso c) {
+    public boolean crearUsuario(Usuario u) {
         PreparedStatement ps = null;
         cn = ConexionBD.conectar();
-        String sql = "INSERT INTO curso(nomCur)VALUES(?)";
+        String sql = "INSERT INTO usuario(username,password,profile,active)VALUES(?,?,?,?)";
         try {
             ps = cn.prepareStatement(sql);
-            ps.setString(1, c.getNomCur());
+            ps.setString(1, u.getUsername());
+            ps.setString(2, u.getPassword());
+            ps.setString(3, u.getProfile());
+            ps.setInt(4, u.getActive());
             ps.executeUpdate();
             cn.close();
             ps.close();
@@ -34,17 +40,20 @@ public class CursoDAO implements IntCursoDAO{
     }
 
     @Override
-    public boolean leerCurso(Curso c) {
+    public boolean leerUsuario(Usuario u) {
         PreparedStatement ps = null;
         ResultSet rs = null;
         cn = ConexionBD.conectar();
-        String sql = "SELECT * FROM curso WHERE idCur=?";
+        String sql = "SELECT * FROM usuario WHERE idUser=?";
         try {
             ps = cn.prepareStatement(sql);
-            ps.setInt(1, c.getIdCur());
+            ps.setInt(1, u.getIdUser());
             rs = ps.executeQuery();
             if (rs.next()) {
-                c.setNomCur(rs.getString("nomCur"));
+                u.setUsername(rs.getString("username"));
+                u.setPassword(rs.getString("password"));
+                u.setProfile(rs.getString("profile"));
+                u.setActive(rs.getInt("active"));
                 return true;
             }
             return false;
@@ -61,14 +70,17 @@ public class CursoDAO implements IntCursoDAO{
     }
 
     @Override
-    public boolean actualizarCurso(Curso c) {
+    public boolean actualizarUsuario(Usuario u) {
         PreparedStatement ps = null;
         cn = ConexionBD.conectar();
-        String sql = "UPDATE curso SET nomCur=? WHERE idCur=?";
+        String sql = "UPDATE usuario SET username=?,password=?,profile=?,active=? WHERE idUser=?";
         try {
             ps = cn.prepareStatement(sql);
-            ps.setString(1, c.getNomCur());
-            ps.setInt(2, c.getIdCur());
+            ps.setString(1, u.getUsername());
+            ps.setString(2, u.getPassword());
+            ps.setString(3, u.getProfile());
+            ps.setInt(4, u.getActive());
+            ps.setInt(4, u.getIdUser());
             ps.execute();
             ps.close();
             return true;
@@ -85,13 +97,13 @@ public class CursoDAO implements IntCursoDAO{
     }
 
     @Override
-    public boolean eliminarCurso(Curso c) {
+    public boolean eliminarUsuario(Usuario u) {
         PreparedStatement ps = null;
         cn = ConexionBD.conectar();
-        String sql = "DELETE FROM curso WHERE idCur=?";
+        String sql = "DELETE FROM usuario WHERE idUser=?";
         try {
             ps = cn.prepareStatement(sql);
-            ps.setInt(1, c.getIdCur());
+            ps.setInt(1, u.getIdUser());
             ps.executeQuery();
             return true;
         } catch (SQLException e) {
@@ -107,18 +119,21 @@ public class CursoDAO implements IntCursoDAO{
     }
 
     @Override
-    public List<Curso> listarCurso() {
-        List<Curso> listaCur = new ArrayList<Curso>();
+    public List<Usuario> listarUsuario() {
+        List<Usuario> listaUser = new ArrayList<Usuario>();
         try {
             cn = ConexionBD.conectar();
-            String sql = "SELECT * FROM curso";
+            String sql = "SELECT * FROM usuario";
             PreparedStatement ps = cn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                Curso c = new Curso();
-                c.setIdCur(rs.getInt("idCur"));
-                c.setNomCur(rs.getString("nomCur"));
-                listaCur.add(c);
+                Usuario u = new Usuario();
+                u.setIdUser(rs.getInt("idUser"));
+                u.setUsername(rs.getString("username"));
+                u.setPassword(rs.getString("password"));
+                u.setProfile(rs.getString("profile"));
+                u.setActive(rs.getInt("active"));
+                listaUser.add(u);
             }
             cn.close();
             rs.close();
@@ -126,7 +141,7 @@ public class CursoDAO implements IntCursoDAO{
         } catch (SQLException e) {
             System.out.println("ERROR al listar: " + e.getMessage());
         }
-        return listaCur;
+        return listaUser;
     }
     
 }

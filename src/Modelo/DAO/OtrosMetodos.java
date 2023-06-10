@@ -1,9 +1,12 @@
 package Modelo.DAO;
 
 import java.awt.Desktop;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import javax.swing.JFileChooser;
 import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -18,6 +21,7 @@ import org.apache.poi.ss.usermodel.Workbook;
  * @author DinerVJ
  */
 public class OtrosMetodos {
+    //Metodo para Exportar
     public void exportarDatosDocente(JTable jtbl) throws IOException{
         JFileChooser chooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("ReportesExcel", "xls");

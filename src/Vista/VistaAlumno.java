@@ -25,24 +25,25 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
 
         jPanel8 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
         jtxtDniAlm = new javax.swing.JTextField();
         jtxtApPatAlm = new javax.swing.JTextField();
         jtxtApMatAlm = new javax.swing.JTextField();
         jPanel12 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
         jlbNomAlm = new javax.swing.JLabel();
         jlblsgNomAlm = new javax.swing.JLabel();
         jlblfecNacAlm = new javax.swing.JLabel();
-        jlbldniApd = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
         jtxtNomAlm = new javax.swing.JTextField();
         jtxtSgNomAlm = new javax.swing.JTextField();
-        jtxtFecNacAlm = new javax.swing.JTextField();
+        jdtcFecNacAlm = new com.toedter.calendar.JDateChooser();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jlbldniApd = new javax.swing.JLabel();
+        jcbGradoAlm = new javax.swing.JComboBox<>();
+        jcbxSecAlm = new javax.swing.JComboBox<>();
         jtxtDniApd = new javax.swing.JTextField();
         jPanel13 = new javax.swing.JPanel();
         jbtnRegAlm = new javax.swing.JButton();
@@ -51,6 +52,7 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
         jPanel9 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jbtnExpAlm = new javax.swing.JButton();
+        btnPdf = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jtxtBusAlm = new javax.swing.JTextField();
         jbtnBusAlm = new javax.swing.JButton();
@@ -58,70 +60,123 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtblAlm = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(0, 0, 51));
+        setOpaque(true);
         setPreferredSize(new java.awt.Dimension(500, 500));
 
-        jPanel8.setLayout(new java.awt.GridLayout(3, 1));
+        jPanel8.setLayout(new java.awt.GridLayout(4, 1));
 
-        jPanel11.setLayout(new java.awt.GridLayout(2, 1));
+        jPanel11.setLayout(new java.awt.GridLayout(2, 3));
 
-        jPanel1.setLayout(new java.awt.GridLayout(1, 0));
-
+        jLabel1.setBackground(new java.awt.Color(0, 0, 51));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("DNI:");
-        jPanel1.add(jLabel1);
+        jLabel1.setOpaque(true);
+        jPanel11.add(jLabel1);
 
+        jLabel2.setBackground(new java.awt.Color(0, 0, 51));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("APELLIDO PATERNO:");
-        jPanel1.add(jLabel2);
+        jLabel2.setOpaque(true);
+        jPanel11.add(jLabel2);
 
+        jLabel3.setBackground(new java.awt.Color(0, 0, 51));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("APELLIDO MATERNO:");
-        jPanel1.add(jLabel3);
-
-        jPanel11.add(jPanel1);
-
-        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
+        jLabel3.setOpaque(true);
+        jPanel11.add(jLabel3);
 
         jtxtDniAlm.setOpaque(true);
-        jPanel2.add(jtxtDniAlm);
-        jPanel2.add(jtxtApPatAlm);
-        jPanel2.add(jtxtApMatAlm);
-
-        jPanel11.add(jPanel2);
+        jPanel11.add(jtxtDniAlm);
+        jPanel11.add(jtxtApPatAlm);
+        jPanel11.add(jtxtApMatAlm);
 
         jPanel8.add(jPanel11);
 
-        jPanel12.setLayout(new java.awt.GridLayout(2, 1));
+        jPanel12.setLayout(new java.awt.GridLayout(2, 3));
 
-        jPanel3.setLayout(new java.awt.GridLayout(1, 0));
-
+        jlbNomAlm.setBackground(new java.awt.Color(0, 0, 51));
+        jlbNomAlm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jlbNomAlm.setForeground(new java.awt.Color(255, 255, 255));
         jlbNomAlm.setText("NOMBRE:");
-        jPanel3.add(jlbNomAlm);
+        jlbNomAlm.setOpaque(true);
+        jPanel12.add(jlbNomAlm);
 
+        jlblsgNomAlm.setBackground(new java.awt.Color(0, 0, 51));
+        jlblsgNomAlm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jlblsgNomAlm.setForeground(new java.awt.Color(255, 255, 255));
         jlblsgNomAlm.setText("SEGUNDO NOMBRE:");
-        jPanel3.add(jlblsgNomAlm);
+        jlblsgNomAlm.setOpaque(true);
+        jPanel12.add(jlblsgNomAlm);
 
+        jlblfecNacAlm.setBackground(new java.awt.Color(0, 0, 51));
+        jlblfecNacAlm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jlblfecNacAlm.setForeground(new java.awt.Color(255, 255, 255));
         jlblfecNacAlm.setText("FECHA DE NACIMIENTO:");
-        jPanel3.add(jlblfecNacAlm);
+        jlblfecNacAlm.setOpaque(true);
+        jPanel12.add(jlblfecNacAlm);
+        jPanel12.add(jtxtNomAlm);
+        jPanel12.add(jtxtSgNomAlm);
 
-        jlbldniApd.setText("DNI DE APODERADO:");
-        jPanel3.add(jlbldniApd);
-
-        jPanel12.add(jPanel3);
-
-        jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
-        jPanel4.add(jtxtNomAlm);
-        jPanel4.add(jtxtSgNomAlm);
-        jPanel4.add(jtxtFecNacAlm);
-        jPanel4.add(jtxtDniApd);
-
-        jPanel12.add(jPanel4);
+        jdtcFecNacAlm.setDateFormatString("yyyy-MM-dd");
+        jPanel12.add(jdtcFecNacAlm);
 
         jPanel8.add(jPanel12);
 
+        jPanel7.setLayout(new java.awt.GridLayout(2, 3));
+
+        jLabel4.setBackground(new java.awt.Color(0, 0, 51));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("GRADO:");
+        jLabel4.setOpaque(true);
+        jPanel7.add(jLabel4);
+
+        jLabel5.setBackground(new java.awt.Color(0, 0, 51));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("SECCIÓN:");
+        jLabel5.setOpaque(true);
+        jPanel7.add(jLabel5);
+
+        jlbldniApd.setBackground(new java.awt.Color(0, 0, 51));
+        jlbldniApd.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jlbldniApd.setForeground(new java.awt.Color(255, 255, 255));
+        jlbldniApd.setText("DNI DE APODERADO:");
+        jlbldniApd.setOpaque(true);
+        jPanel7.add(jlbldniApd);
+
+        jPanel7.add(jcbGradoAlm);
+
+        jPanel7.add(jcbxSecAlm);
+        jPanel7.add(jtxtDniApd);
+
+        jPanel8.add(jPanel7);
+
+        jPanel13.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel13.setForeground(new java.awt.Color(255, 255, 255));
+
+        jbtnRegAlm.setBackground(new java.awt.Color(102, 0, 0));
+        jbtnRegAlm.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jbtnRegAlm.setForeground(new java.awt.Color(204, 102, 0));
+        jbtnRegAlm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/disquete.png"))); // NOI18N
         jbtnRegAlm.setText("REGISTRAR");
         jPanel13.add(jbtnRegAlm);
 
+        jbtnActAlm.setBackground(new java.awt.Color(102, 0, 0));
+        jbtnActAlm.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jbtnActAlm.setForeground(new java.awt.Color(204, 102, 0));
+        jbtnActAlm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/actualizar.png"))); // NOI18N
         jbtnActAlm.setText("ACTUALIZAR");
         jPanel13.add(jbtnActAlm);
 
+        jbtnElmAlm.setBackground(new java.awt.Color(102, 0, 0));
+        jbtnElmAlm.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jbtnElmAlm.setForeground(new java.awt.Color(204, 102, 0));
+        jbtnElmAlm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/borrar.png"))); // NOI18N
         jbtnElmAlm.setText("ELIMINAR");
         jPanel13.add(jbtnElmAlm);
 
@@ -131,14 +186,39 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
 
         jPanel9.setLayout(new java.awt.GridLayout(2, 0));
 
+        jPanel5.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel5.setForeground(new java.awt.Color(255, 255, 255));
+
+        jbtnExpAlm.setBackground(new java.awt.Color(102, 0, 0));
+        jbtnExpAlm.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jbtnExpAlm.setForeground(new java.awt.Color(204, 102, 0));
+        jbtnExpAlm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/excel.png"))); // NOI18N
         jbtnExpAlm.setText("EXPORTAR");
         jPanel5.add(jbtnExpAlm);
 
+        btnPdf.setBackground(new java.awt.Color(102, 0, 0));
+        btnPdf.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnPdf.setForeground(new java.awt.Color(255, 102, 0));
+        btnPdf.setText("PDF");
+        btnPdf.setPreferredSize(new java.awt.Dimension(138, 39));
+        btnPdf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPdfActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnPdf);
+
         jPanel9.add(jPanel5);
 
+        jPanel6.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel6.setForeground(new java.awt.Color(255, 255, 255));
         jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.LINE_AXIS));
         jPanel6.add(jtxtBusAlm);
 
+        jbtnBusAlm.setBackground(new java.awt.Color(102, 0, 0));
+        jbtnBusAlm.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jbtnBusAlm.setForeground(new java.awt.Color(204, 102, 0));
+        jbtnBusAlm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/lupa.png"))); // NOI18N
         jbtnBusAlm.setText("BUSCAR");
         jPanel6.add(jbtnBusAlm);
 
@@ -165,21 +245,25 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPdfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPdfActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnPdf;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
@@ -188,6 +272,9 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
     public javax.swing.JButton jbtnElmAlm;
     public javax.swing.JButton jbtnExpAlm;
     public javax.swing.JButton jbtnRegAlm;
+    public javax.swing.JComboBox<String> jcbGradoAlm;
+    public javax.swing.JComboBox<String> jcbxSecAlm;
+    public com.toedter.calendar.JDateChooser jdtcFecNacAlm;
     private javax.swing.JLabel jlbNomAlm;
     private javax.swing.JLabel jlbldniApd;
     private javax.swing.JLabel jlblfecNacAlm;
@@ -198,7 +285,6 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
     public javax.swing.JTextField jtxtBusAlm;
     public javax.swing.JTextField jtxtDniAlm;
     public javax.swing.JTextField jtxtDniApd;
-    public javax.swing.JTextField jtxtFecNacAlm;
     public javax.swing.JTextField jtxtNomAlm;
     public javax.swing.JTextField jtxtSgNomAlm;
     // End of variables declaration//GEN-END:variables

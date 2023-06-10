@@ -13,7 +13,7 @@ public class ApoderadoDAO implements IntApoderadoDAO {
     public boolean crearApoderado(Apoderado apd) {
         PreparedStatement ps = null;
         cn = ConexionBD.conectar();
-        String sql = "insert into apoderado(dniApd,apPatApd,apMatApd,nomApd,sgNomApd,fecNacApd)values(?,?,?,?,?,?)";
+        String sql = "INSER INTO apoderado(dniApd,apPatApd,apMatApd,nomApd,sgNomApd,fecNacApd)VALUES(?,?,?,?,?,?)";
         try {
             ps = cn.prepareStatement(sql);
             ps.setString(1, apd.getDniApd());
@@ -21,7 +21,7 @@ public class ApoderadoDAO implements IntApoderadoDAO {
             ps.setString(3, apd.getApMatApd());
             ps.setString(4, apd.getNomApd());
             ps.setString(5, apd.getSgNomApd());
-            ps.setString(6, apd.getFecNacApd());
+            ps.setDate(6, new java.sql.Date(apd.getFecNacApd().getTime()));
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -41,7 +41,7 @@ public class ApoderadoDAO implements IntApoderadoDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
         cn = ConexionBD.conectar();
-        String sql = "select * from apoderado where dniApd=?";
+        String sql = "SELECT * FROM apoderado WHERE dniApd=?";
         try {
             ps = cn.prepareStatement(sql);
             ps.setString(1, apd.getDniApd());
@@ -51,7 +51,7 @@ public class ApoderadoDAO implements IntApoderadoDAO {
                 apd.setApMatApd(rs.getString("apMatApd"));
                 apd.setNomApd(rs.getString("nomApd"));
                 apd.setSgNomApd(rs.getString("sgNomApd"));
-                apd.setFecNacApd(rs.getString("fecNacApd"));
+                apd.setFecNacApd(rs.getDate("fecNacApd"));
                 return true;
             }
             return false;
@@ -71,14 +71,14 @@ public class ApoderadoDAO implements IntApoderadoDAO {
     public boolean actualizarApoderado(Apoderado apd) {
         PreparedStatement ps = null;
         cn = ConexionBD.conectar();
-        String sql = "update apoderado set apPatApd=?,apMatApd=?,nomApd=?,sgNomApd=?,fecNacApd=? where dniApd=?";
+        String sql = "UPDATE apoderado SET apPatApd=?,apMatApd=?,nomApd=?,sgNomApd=?,fecNacApd=? WHERE dniApd=?";
         try {
             ps = cn.prepareStatement(sql);
             ps.setString(1, apd.getApPatApd());
             ps.setString(2, apd.getApMatApd());
             ps.setString(3, apd.getNomApd());
             ps.setString(4, apd.getSgNomApd());
-            ps.setString(5, apd.getFecNacApd());
+            ps.setDate(5, new java.sql.Date(apd.getFecNacApd().getTime()));
             ps.setString(6, apd.getDniApd());
             ps.execute();
             return true;
@@ -98,7 +98,7 @@ public class ApoderadoDAO implements IntApoderadoDAO {
     public boolean eliminarApoderado(Apoderado apd) {
         PreparedStatement ps = null;
         cn = ConexionBD.conectar();
-        String sql = "delete from apoderado where dniApd=?";
+        String sql = "DELETE FROM apoderado WHERE dniApd=?";
         try {
             ps = cn.prepareStatement(sql);
             ps.setString(1, apd.getDniApd());
@@ -121,7 +121,7 @@ public class ApoderadoDAO implements IntApoderadoDAO {
         List<Apoderado> listaApd = new ArrayList<Apoderado>();
         try {
             cn = ConexionBD.conectar();
-            String sql = "select * from apoderado";
+            String sql = "SELECT * FROM apoderado";
             PreparedStatement ps = cn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -131,7 +131,7 @@ public class ApoderadoDAO implements IntApoderadoDAO {
                 apd.setApMatApd(rs.getString("apMatApd"));
                 apd.setNomApd(rs.getString("nomApd"));
                 apd.setSgNomApd(rs.getString("sgNomApd"));
-                apd.setFecNacApd(rs.getString("fecNacApd"));
+                apd.setFecNacApd(rs.getDate("fecNacApd"));
                 listaApd.add(apd);
             }
             cn.close();

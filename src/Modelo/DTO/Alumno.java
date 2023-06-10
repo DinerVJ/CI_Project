@@ -1,19 +1,24 @@
 
 package Modelo.DTO;
 
+import java.util.Date;
+
 public class Alumno {
     private String dniAlm;
     private String apPatAlm;
     private String apMatAlm;
     private String nomAlm;
     private String sgNomAlm;
-    private String fecNacAlm;
+    private Date fecNacAlm;
     private String dniApd;
+    private String gradoAlm;
+    private String seccionAlm;
 
     public Alumno(){
         
     }
-    public Alumno(String dniAlm, String apPatAlm, String apMatAlm, String nomAlm, String sgNomAlm, String fecNacAlm, String dniApd) {
+
+    public Alumno(String dniAlm, String apPatAlm, String apMatAlm, String nomAlm, String sgNomAlm, Date fecNacAlm, String dniApd, String gradoAlm, String seccionAlm) {
         this.dniAlm = dniAlm;
         this.apPatAlm = apPatAlm;
         this.apMatAlm = apMatAlm;
@@ -21,8 +26,10 @@ public class Alumno {
         this.sgNomAlm = sgNomAlm;
         this.fecNacAlm = fecNacAlm;
         this.dniApd = dniApd;
+        this.gradoAlm = gradoAlm;
+        this.seccionAlm = seccionAlm;
     }
-
+    
     public String getDniAlm() {
         return dniAlm;
     }
@@ -63,11 +70,11 @@ public class Alumno {
         this.sgNomAlm = sgNomAlm;
     }
 
-    public String getFecNacAlm() {
+    public Date getFecNacAlm() {
         return fecNacAlm;
     }
 
-    public void setFecNacAlm(String fecNacAlm) {
+    public void setFecNacAlm(Date fecNacAlm) {
         this.fecNacAlm = fecNacAlm;
     }
 
@@ -78,9 +85,26 @@ public class Alumno {
     public void setDniApd(String dniApd) {
         this.dniApd = dniApd;
     }
+
+    public String getGradoAlm() {
+        return gradoAlm;
+    }
+
+    public void setGradoAlm(String gradoAlm) {
+        this.gradoAlm = gradoAlm;
+    }
+
+    public String getSeccionAlm() {
+        return seccionAlm;
+    }
+
+    public void setSeccionAlm(String seccionAlm) {
+        this.seccionAlm = seccionAlm;
+    }
     
     public Object[] registroAlumno(){
-        Object[] fila = {dniAlm,apPatAlm,apMatAlm,nomAlm,sgNomAlm,fecNacAlm,dniApd};
+        Object[] fila = {dniAlm,apPatAlm,apMatAlm,nomAlm,sgNomAlm,fecNacAlm,dniApd,gradoAlm,seccionAlm};
         return fila;
     }
+    
 }

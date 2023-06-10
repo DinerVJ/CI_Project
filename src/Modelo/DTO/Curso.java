@@ -2,23 +2,23 @@
 package Modelo.DTO;
 
 public class Curso {
-    private String codCur;
+    private int idCur;
     private String nomCur;
 
     public Curso() {
     }
  
-    public Curso(String codCur, String nomCur) {
-        this.codCur = codCur;
+    public Curso(int idCur, String nomCur) {
+        this.idCur = idCur;
         this.nomCur = nomCur;
     }
 
-    public String getCodCur() {
-        return codCur;
+    public int getIdCur() {
+        return idCur;
     }
 
-    public void setCodCur(String codCur) {
-        this.codCur = codCur;
+    public void setIdCur(int idCur) {
+        this.idCur = idCur;
     }
 
     public String getNomCur() {
